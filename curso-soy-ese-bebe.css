@@ -1,0 +1,1106 @@
+/* SoyEseBebé landing — scoped page (no global site styles) */
+:root {
+  --pink: #f472a8;
+  --pink-light: #fddcec;
+  --pink-dark: #c4417f;
+  --orange: #f97316;
+  --orange-light: #fef0e6;
+  --orange-dark: #c45a0c;
+  --yellow: #fbbf24;
+  --yellow-light: #fef9e7;
+  --yellow-dark: #9a7209;
+  --green: #4caf82;
+  --green-light: #e6f7ee;
+  --green-dark: #2d7a52;
+  /* Verde oliva para títulos (no está en el bloque de 4 colores; armoniza con el verde de marca) */
+  --olive: #5c6b3a;
+  --cream: #fffaf6;
+  --white: #ffffff;
+  --text: #2c1810;
+  --muted: #6b5348;
+  --para-cream: #fff6f0;
+  --shadow-orange: rgba(249, 115, 22, 0.28);
+  --shadow-pink: rgba(244, 114, 168, 0.35);
+  /* Azul sidebar / título Noches Completas; reutilizable en otras landings */
+  --seb-nc-headline-blue: #6a93aa;
+  /* Fondos modalidades (tomados de la intensidad de marca de los tags rosa/amarillo/verde) */
+  --seb-tier-bg-pink: #faeaf1;
+  --seb-tier-bg-yellow: #fff7dd;
+  --seb-tier-bg-green: #ddebe4;
+  --max: 960px;
+  --pad-x: 48px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Con styles.css (topbar global): quitar fondo ilustrado del sitio en <html> */
+html:has(body.seb-page) {
+  background-image: none;
+  background-color: var(--cream);
+  background-size: auto;
+  background-attachment: scroll;
+}
+
+body.seb-page {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Nunito", system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--text);
+  background: var(--cream);
+  -webkit-font-smoothing: antialiased;
+}
+
+.seb-page img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.seb-wrap {
+  width: 100%;
+  max-width: var(--max);
+  margin-inline: auto;
+  padding-inline: var(--pad-x);
+}
+
+@media (max-width: 640px) {
+  :root {
+    --pad-x: 24px;
+  }
+}
+
+.seb-logo {
+  font-family: "Lora", Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.seb-logo__accent {
+  color: var(--pink);
+}
+
+.seb-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.2s;
+}
+
+.seb-btn--pill {
+  border-radius: 999px;
+  padding: 10px 22px;
+}
+
+.seb-btn--pink {
+  background: var(--pink);
+  color: var(--white);
+}
+
+.seb-btn--pink:hover {
+  background: var(--pink-dark);
+  transform: translateY(-1px);
+}
+
+.seb-btn--orange-pill {
+  background: var(--orange);
+  color: var(--white);
+  border-radius: 999px;
+  padding: 14px 28px;
+  box-shadow: 0 10px 28px var(--shadow-orange);
+}
+
+.seb-btn--orange-pill:hover {
+  background: var(--orange-dark);
+  transform: translateY(-1px);
+}
+
+.seb-btn--ghost {
+  background: transparent;
+  color: var(--text);
+  border-color: rgba(44, 24, 16, 0.22);
+  border-radius: 999px;
+  padding: 12px 24px;
+}
+
+.seb-btn--ghost:hover {
+  border-color: var(--text);
+  transform: translateY(-1px);
+}
+
+.seb-btn--pink-cta {
+  background: var(--pink);
+  color: var(--white);
+  border-radius: 999px;
+  padding: 14px 28px;
+  box-shadow: 0 10px 32px var(--shadow-pink);
+}
+
+.seb-btn--pink-cta:hover {
+  background: var(--pink-dark);
+  transform: translateY(-1px);
+}
+
+.seb-btn--block {
+  width: 100%;
+  border-radius: 14px;
+  padding: 16px 20px;
+}
+
+.seb-btn--dark-area {
+  border-radius: 999px;
+  padding: 14px 28px;
+}
+
+/* —— Hero —— */
+.seb-hero {
+  padding-top: 28px;
+  padding-bottom: 0;
+  overflow: hidden;
+}
+
+.seb-hero__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(24px, 4vw, 48px);
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .seb-hero__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.seb-hero__left {
+  padding-top: 12px;
+  padding-bottom: 48px;
+  animation: seb-fade-up 0.75s ease both;
+  animation-delay: 0.05s;
+}
+
+.seb-badge {
+  display: inline-block;
+  background: var(--yellow-light);
+  color: var(--yellow-dark);
+  font-weight: 600;
+  font-size: 0.8125rem;
+  letter-spacing: 0.02em;
+  padding: 8px 14px;
+  border-radius: 999px;
+  margin-bottom: 18px;
+}
+
+.seb-hero__h1 {
+  font-family: "Lora", Georgia, serif;
+  font-size: clamp(2rem, 6vw, 3.375rem);
+  font-weight: 600;
+  line-height: 1.12;
+  margin: 0 0 16px;
+  color: var(--text);
+}
+
+@media (min-width: 901px) {
+  .seb-hero__h1 {
+    font-size: 3.375rem;
+  }
+}
+
+.seb-hero__h1-curso {
+  color: rgb(226, 166, 195);
+  font-style: normal;
+  font-weight: 600;
+}
+
+.seb-hero__h1-olive {
+  font-style: italic;
+  color: rgb(141, 151, 121);
+  font-weight: 600;
+}
+
+.seb-hero__lede {
+  font-size: 15.5px;
+  color: var(--muted);
+  max-width: 34em;
+  margin: 0 0 22px;
+}
+
+.seb-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.seb-chip {
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 10px 14px;
+  border-radius: 10px;
+}
+
+.seb-chip--orange {
+  background: var(--orange-light);
+  color: var(--orange-dark);
+}
+
+.seb-chip--pink {
+  background: var(--pink-light);
+  color: var(--pink-dark);
+}
+
+.seb-chip--green {
+  background: var(--green-light);
+  color: var(--green-dark);
+}
+
+/* Hero media */
+.seb-hero__right {
+  position: relative;
+  min-height: 420px;
+  animation: seb-fade-up 0.75s ease both;
+  animation-delay: 0.18s;
+}
+
+@media (max-width: 900px) {
+  .seb-hero__right {
+    min-height: 320px;
+    max-width: 420px;
+    margin-inline: auto;
+  }
+}
+
+.seb-hero-media {
+  position: relative;
+  border-radius: 28px 28px 0 0;
+  overflow: hidden;
+  background: var(--white);
+}
+
+.seb-hero-media__img {
+  display: block;
+  width: 100%;
+  min-height: 380px;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Ajuste solo para la página del segundo curso (foto de Guillermo) */
+.seb-page--guillermo .seb-hero-media {
+  border-radius: 24px;
+}
+
+.seb-page--guillermo .seb-hero-media__img {
+  border-radius: 24px;
+  transform: scale(1.06);
+  transform-origin: center;
+  object-position: center 80%;
+}
+
+@media (max-width: 900px) {
+  .seb-hero-media__img {
+    min-height: 280px;
+  }
+}
+
+@keyframes seb-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* —— Section label (eyebrow pill) —— */
+.seb-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1.8px;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  padding: 6px 12px 6px 10px;
+  border-radius: 999px;
+  margin-bottom: 14px;
+}
+
+.seb-tag::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.seb-tag--orange {
+  background: var(--orange-light);
+  color: var(--orange-dark);
+}
+.seb-tag--orange::before {
+  background: var(--orange);
+}
+
+.seb-tag--pink {
+  background: var(--pink-light);
+  color: var(--pink-dark);
+}
+.seb-tag--pink::before {
+  background: var(--pink);
+}
+
+.seb-tag--green {
+  background: var(--green-light);
+  color: var(--green-dark);
+}
+.seb-tag--green::before {
+  background: var(--green);
+}
+
+.seb-tag--yellow-pill {
+  background: rgba(251, 191, 36, 0.2);
+  color: var(--yellow-dark);
+  text-transform: none;
+  letter-spacing: 0.04em;
+  font-size: 0.8125rem;
+}
+
+/* —— Main + sidebar —— */
+.seb-band {
+  padding-block: 56px 72px;
+  background: var(--cream);
+}
+
+.seb-main-grid {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 40px;
+  align-items: start;
+}
+
+@media (max-width: 960px) {
+  .seb-main-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto minmax(0, 1fr);
+    align-items: stretch;
+    min-height: calc(100vh - 80px);
+    min-height: calc(100dvh - 80px);
+  }
+
+  .seb-sidebar {
+    position: static;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    align-self: stretch;
+    width: 100%;
+    max-width: none;
+  }
+
+  .seb-price {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+  }
+
+  .seb-price__body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Deja hueco hasta el fondo visual del box; CTAs pegados abajo dentro del área blanca */
+  .seb-price__actions {
+    margin-top: auto;
+  }
+}
+
+.seb-prose h2 {
+  font-family: "Lora", Georgia, serif;
+  font-size: clamp(1.5rem, 2.5vw, 1.875rem);
+  font-weight: 600;
+  margin: 0 0 12px;
+  line-height: 1.2;
+  color: var(--text);
+}
+
+.seb-prose h2 em {
+  font-style: italic;
+  color: var(--orange);
+}
+
+.seb-section--pink h2 em {
+  color: var(--pink);
+}
+
+.seb-section--green h2 em {
+  color: var(--green);
+}
+
+.seb-prose p {
+  margin: 0 0 16px;
+  color: var(--text);
+}
+
+.seb-achieve-list {
+  list-style: none;
+  margin: 0 0 16px;
+  padding: 0;
+}
+
+.seb-achieve-list li {
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: rgb(42, 146, 103);
+}
+
+.seb-achieve-list li:last-child {
+  margin-bottom: 0;
+}
+
+.seb-block {
+  margin-bottom: 48px;
+}
+
+.seb-block:last-child {
+  margin-bottom: 0;
+}
+
+/* Learn list */
+.seb-learn-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.seb-learn-item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 16px;
+  align-items: start;
+  padding: 18px 0;
+  border-bottom: 1px dashed var(--orange);
+}
+
+.seb-learn-item:first-child {
+  padding-top: 0;
+}
+
+.seb-learn-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.seb-num {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  color: var(--white);
+  flex-shrink: 0;
+}
+
+.seb-num--pink {
+  background: var(--pink);
+}
+.seb-num--orange {
+  background: var(--orange);
+}
+.seb-num--yellow {
+  background: var(--yellow);
+  color: var(--yellow-dark);
+}
+.seb-num--green {
+  background: var(--green);
+}
+
+.seb-learn-item p {
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Yellow strip */
+.seb-strip {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  background: var(--yellow-light);
+  border: 1px solid rgba(251, 191, 36, 0.45);
+  border-radius: 14px;
+  padding: 18px 18px;
+  margin-top: 16px;
+}
+
+.seb-strip__icon {
+  font-size: 1.35rem;
+  line-height: 1;
+}
+
+.seb-strip strong {
+  display: block;
+  font-family: "Lora", Georgia, serif;
+  font-size: 1.05rem;
+  margin-bottom: 4px;
+  color: var(--text);
+}
+
+.seb-strip p {
+  margin: 0;
+  font-size: 0.9375rem;
+  color: var(--muted);
+}
+
+/* —— Price card —— */
+.seb-sidebar {
+  position: sticky;
+  top: 84px;
+}
+
+.seb-price {
+  background: var(--white);
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(44, 24, 16, 0.08);
+}
+
+.seb-price__head {
+  position: relative;
+  background: var(--olive);
+  color: var(--white);
+  padding: 28px 22px 26px;
+  overflow: hidden;
+}
+
+.seb-price__head::before,
+.seb-price__head::after {
+  content: "";
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  pointer-events: none;
+}
+
+.seb-price__head::before {
+  top: -60px;
+  right: -40px;
+}
+
+.seb-price__head::after {
+  bottom: -70px;
+  left: -50px;
+}
+
+.seb-price__label {
+  position: relative;
+  font-size: 0.6875rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  opacity: 0.95;
+  margin-bottom: 6px;
+}
+
+.seb-price__amount {
+  position: relative;
+  font-family: "Lora", Georgia, serif;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0 0 6px;
+}
+
+.seb-price__note {
+  position: relative;
+  font-size: 0.875rem;
+  font-weight: 500;
+  opacity: 0.95;
+  margin: 0;
+}
+
+.seb-price__body {
+  padding: 22px;
+}
+
+.seb-price-features {
+  list-style: none;
+  margin: 0 0 20px;
+  padding: 0;
+}
+
+.seb-price-features li {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  margin-bottom: 12px;
+  font-size: 0.9375rem;
+  font-weight: 500;
+}
+
+.seb-price-features li:last-child {
+  margin-bottom: 0;
+}
+
+.seb-ico {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.seb-ico--pink {
+  background: var(--pink);
+}
+.seb-ico--yellow {
+  background: var(--yellow);
+}
+.seb-ico--orange {
+  background: var(--orange);
+}
+.seb-ico--green {
+  background: var(--green);
+}
+
+.seb-price__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.seb-price__actions > .seb-btn--pink {
+  box-shadow: 0 10px 32px var(--shadow-pink);
+}
+
+.seb-price__fine {
+  font-size: 0.8125rem;
+  color: var(--muted);
+  text-align: center;
+  margin: 0;
+  line-height: 1.45;
+}
+
+/* —— FAQ (curso) — mismo crema que #para-quien —— */
+.seb-faq {
+  padding: 56px 0;
+  background: hsl(42 52% 97%);
+  border-top: 2px dashed rgba(62, 47, 43, 0.1);
+}
+
+.seb-faq__inner {
+  max-width: var(--max);
+}
+
+.seb-faq__eyebrow {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--green-dark);
+  margin: 0 0 8px;
+}
+
+.seb-faq__title {
+  font-family: "Lora", Georgia, serif;
+  font-size: clamp(1.5rem, 3.5vw, 2rem);
+  font-weight: 600;
+  color: var(--olive);
+  margin: 0 0 24px;
+}
+
+.seb-faq__list details {
+  border: 1px solid rgba(44, 24, 16, 0.1);
+  border-radius: 14px;
+  background: var(--white);
+  padding: 14px 16px;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 16px rgba(44, 24, 16, 0.04);
+}
+
+.seb-faq__list summary {
+  font-weight: 700;
+  cursor: pointer;
+  color: var(--text);
+}
+
+.seb-faq__list details p {
+  margin: 10px 0 0;
+  color: var(--muted);
+}
+
+/* —— Footer —— */
+.seb-footer {
+  background: var(--white);
+  border-top: 3px solid var(--pink-light);
+  padding: 28px var(--pad-x);
+}
+
+.seb-footer__inner {
+  max-width: var(--max);
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.seb-footer__nav {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex: 1;
+}
+
+.seb-footer__nav a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9375rem;
+}
+
+.seb-footer__nav a:hover {
+  color: var(--pink-dark);
+}
+
+.seb-footer__copy {
+  font-size: 0.8125rem;
+  color: var(--muted);
+  margin: 0;
+}
+
+@media (max-width: 720px) {
+  .seb-footer__inner {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* Cursos con plantilla SoyEseBebé: Schoolbell en titulares */
+body.seb-page--noches-completas .seb-hero__h1,
+body.seb-page--noches-completas .seb-hero__h1 .seb-hero__h1-curso,
+body.seb-page--noches-completas .seb-hero__h1 .seb-hero__h1-olive,
+body.seb-page--sueno-desde-cero .seb-hero__h1,
+body.seb-page--sueno-desde-cero .seb-hero__h1 .seb-hero__h1-curso,
+body.seb-page--sueno-desde-cero .seb-hero__h1 .seb-hero__h1-olive,
+body.seb-page--acompanamiento .seb-hero__h1,
+body.seb-page--acompanamiento .seb-hero__h1 .seb-hero__h1-curso,
+body.seb-page--acompanamiento .seb-hero__h1 .seb-hero__h1-olive {
+  font-family: "Schoolbell", cursive;
+  font-weight: 400;
+}
+
+body.seb-page--noches-completas .seb-tag,
+body.seb-page--sueno-desde-cero .seb-tag,
+body.seb-page--acompanamiento .seb-tag {
+  font-family: "Schoolbell", cursive;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0.04em;
+  font-size: clamp(0.8125rem, 2.2vw, 0.9375rem);
+}
+
+body.seb-page--noches-completas .seb-prose h2,
+body.seb-page--sueno-desde-cero .seb-prose h2,
+body.seb-page--acompanamiento .seb-prose h2 {
+  font-family: "Schoolbell", cursive;
+  font-weight: 400;
+}
+
+body.seb-page--noches-completas .seb-faq__eyebrow,
+body.seb-page--noches-completas .seb-faq__title,
+body.seb-page--sueno-desde-cero .seb-faq__eyebrow,
+body.seb-page--sueno-desde-cero .seb-faq__title,
+body.seb-page--acompanamiento .seb-faq__eyebrow,
+body.seb-page--acompanamiento .seb-faq__title {
+  font-family: "Schoolbell", cursive;
+  font-weight: 400;
+}
+
+body.seb-page--noches-completas .seb-faq__eyebrow,
+body.seb-page--sueno-desde-cero .seb-faq__eyebrow,
+body.seb-page--acompanamiento .seb-faq__eyebrow {
+  text-transform: none;
+  letter-spacing: 0.05em;
+}
+
+body.seb-page--noches-completas .seb-faq__list summary,
+body.seb-page--sueno-desde-cero .seb-faq__list summary,
+body.seb-page--acompanamiento .seb-faq__list summary {
+  font-family: "Schoolbell", cursive;
+  font-weight: 400;
+}
+
+body.seb-page--noches-completas #para-quien .para-quien-sanctuary__badge,
+body.seb-page--noches-completas #para-quien .para-quien-sanctuary__title,
+body.seb-page--noches-completas #para-quien .para-quien-sanctuary__col-title,
+body.seb-page--sueno-desde-cero #para-quien .para-quien-sanctuary__badge,
+body.seb-page--sueno-desde-cero #para-quien .para-quien-sanctuary__title,
+body.seb-page--sueno-desde-cero #para-quien .para-quien-sanctuary__col-title {
+  font-family: "Schoolbell", cursive;
+  font-weight: 400;
+}
+
+body.seb-page--noches-completas #para-quien .para-quien-sanctuary__badge,
+body.seb-page--sueno-desde-cero #para-quien .para-quien-sanctuary__badge {
+  text-transform: none;
+  letter-spacing: 0.04em;
+}
+
+body.seb-page--noches-completas .seb-price__label,
+body.seb-page--sueno-desde-cero .seb-price__label,
+body.seb-page--acompanamiento .seb-price__label {
+  font-family: "Schoolbell", cursive;
+  font-weight: 400;
+}
+
+body.seb-page--noches-completas .seb-price__note,
+body.seb-page--sueno-desde-cero .seb-price__note,
+body.seb-page--acompanamiento .seb-price__note {
+  font-family: "Schoolbell", cursive;
+  font-weight: 400;
+  font-size: calc(0.875rem + 1.5px);
+}
+
+/* Precio sidebar: segundo curso — fondo amarillo claro + texto oscuro */
+body.seb-page--noches-completas .seb-price__head {
+  background: var(--yellow-light);
+  color: var(--text);
+}
+
+body.seb-page--noches-completas .seb-price__head::before,
+body.seb-page--noches-completas .seb-price__head::after {
+  background: rgba(251, 191, 36, 0.18);
+}
+
+body.seb-page--noches-completas .seb-price__amount {
+  color: var(--text);
+}
+
+body.seb-page--noches-completas .seb-lograr-nc__how {
+  font-family: "Schoolbell", cursive;
+  font-weight: 400;
+  font-size: clamp(1.35rem, 3vw, 1.65rem);
+  color: var(--green-dark);
+  margin: 1.5rem 0 12px;
+  line-height: 1.25;
+}
+
+/* Hero título Curso Noches Completas: naranja claro + azul del nombre del curso */
+body.seb-page--noches-completas .seb-hero__h1-curso {
+  color: #eb7f48;
+}
+
+body.seb-page--noches-completas .seb-hero__h1 .seb-hero__h1-olive {
+  color: var(--seb-nc-headline-blue);
+}
+
+/* Agenda acompañamiento: hero violeta suave · sidebar mismo azul que usaba precio del 2º curso */
+body.seb-page--acompanamiento .seb-hero__h1-curso {
+  color: #dda4c8;
+}
+
+body.seb-page--acompanamiento .seb-hero__h1 .seb-hero__h1-olive {
+  color: #9283b8;
+}
+
+body.seb-page--acompanamiento .seb-price__head {
+  background: var(--seb-nc-headline-blue);
+  color: var(--white);
+}
+
+body.seb-page--acompanamiento .seb-price__head::before,
+body.seb-page--acompanamiento .seb-price__head::after {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+body.seb-page--acompanamiento .seb-price__amount {
+  color: var(--white);
+}
+
+body.seb-page--acompanamiento .seb-cta-band {
+  margin: 1.25rem 0 0.75rem;
+}
+
+body.seb-page--acompanamiento .seb-topic-list {
+  margin: 0 0 1rem;
+  padding-left: 1.15rem;
+  color: var(--text);
+  line-height: 1.65;
+}
+
+body.seb-page--acompanamiento .seb-topic-list li + li {
+  margin-top: 0.35rem;
+}
+
+body.seb-page--acompanamiento .seb-tier-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 14px;
+}
+
+body.seb-page--acompanamiento .seb-tier {
+  border-radius: 14px;
+  border: 1px solid rgba(44, 24, 16, 0.1);
+  background: var(--white);
+  padding: 18px 18px 20px;
+  box-shadow: 0 5px 20px rgba(44, 24, 16, 0.05);
+}
+
+body.seb-page--acompanamiento .seb-tier--pink {
+  background: var(--seb-tier-bg-pink);
+  border-color: rgba(244, 114, 168, 0.42);
+}
+
+body.seb-page--acompanamiento .seb-tier--yellow {
+  background: var(--seb-tier-bg-yellow);
+  border-color: rgba(251, 191, 36, 0.52);
+}
+
+body.seb-page--acompanamiento .seb-tier--green {
+  background: var(--seb-tier-bg-green);
+  border-color: rgba(76, 175, 130, 0.42);
+}
+
+body.seb-page--acompanamiento .seb-tier__name {
+  font-family: "Schoolbell", cursive;
+  font-size: clamp(1.2rem, 2.6vw, 1.42rem);
+  font-weight: 400;
+  color: var(--text);
+  margin: 0 0 10px;
+}
+
+body.seb-page--acompanamiento .seb-tier__price-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  margin: 14px 0 0;
+}
+
+body.seb-page--acompanamiento .seb-tier__amount {
+  font-family: "Lora", Georgia, serif;
+  font-weight: 700;
+  font-size: 1.45rem;
+  color: var(--text);
+}
+
+body.seb-page--acompanamiento .seb-tier__agenda-link {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 16px;
+  margin: 0;
+  border: 1px solid rgba(44, 24, 16, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 4px 12px rgba(44, 24, 16, 0.06);
+  font-family: "Nunito", system-ui, sans-serif;
+  font-size: 0.8925rem;
+  font-weight: 700;
+  color: var(--text);
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+}
+
+body.seb-page--acompanamiento .seb-tier .seb-achieve-list li {
+  color: var(--text);
+}
+
+body.seb-page--acompanamiento .seb-tier__agenda-link:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(44, 24, 16, 0.1);
+}
+
+body.seb-page--acompanamiento .seb-tier--pink .seb-tier__agenda-link {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(196, 65, 127, 0.26);
+}
+
+body.seb-page--acompanamiento .seb-tier--yellow .seb-tier__agenda-link {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(154, 114, 9, 0.22);
+}
+
+body.seb-page--acompanamiento .seb-tier--green .seb-tier__agenda-link {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(45, 122, 82, 0.25);
+}
+
+body.seb-page--acompanamiento .seb-tier__agenda-link:focus-visible {
+  outline: 2px solid var(--pink);
+  outline-offset: 3px;
+}
+
+body.seb-page--acompanamiento .seb-tier__neg {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+  font-size: 0.9025rem;
+  color: var(--muted);
+  line-height: 1.48;
+}
+
+body.seb-page--acompanamiento .seb-tier__neg li + li {
+  margin-top: 4px;
+}
+
+body.seb-page--acompanamiento .seb-tier__neg li::before {
+  content: "– ";
+}
+
+body.seb-page--acompanamiento .seb-bonus-box {
+  margin-top: 20px;
+  padding: 16px 18px;
+  border-radius: 12px;
+  background: var(--pink-light);
+  border: 1px solid rgba(212, 65, 126, 0.12);
+  color: var(--text);
+}
+
+body.seb-page--acompanamiento .seb-bonus-box strong {
+  color: var(--pink-dark);
+}
+
+body.seb-page--acompanamiento .seb-tier-intro .seb-tag {
+  margin-top: 1.25rem;
+}
+
+body.seb-page--acompanamiento .seb-tier-intro h2 {
+  margin-top: 0.85rem;
+}
