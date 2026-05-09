@@ -122,30 +122,3 @@ if (cbcTestimonials) {
   );
   cbcObserver.observe(cbcTestimonials);
 }
-
-/* #para-quien: fade-up al entrar ~30 % en vista */
-(function initParaQuienSanctuary() {
-  const section = document.getElementById("para-quien");
-  if (!section || section.classList.contains("in-view")) return;
-  const mqReduce = window.matchMedia("(prefers-reduced-motion: reduce)");
-  if (mqReduce.matches) {
-    section.classList.add("in-view");
-    return;
-  }
-  const observer = new IntersectionObserver(
-    (entries, obs) => {
-      entries.forEach((entry) => {
-        if (entry.target !== section || !entry.isIntersecting) return;
-        const vh = Math.max(window.innerHeight, 1);
-        const fillViewport =
-          entry.intersectionRect.height / vh >= 0.35;
-        if (entry.intersectionRatio >= 0.3 || fillViewport) {
-          section.classList.add("in-view");
-          obs.disconnect();
-        }
-      });
-    },
-    { threshold: [0, 0.1, 0.15, 0.2, 0.25, 0.3, 0.4, 0.5, 0.65, 0.8, 1] }
-  );
-  observer.observe(section);
-})();

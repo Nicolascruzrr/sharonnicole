@@ -8,16 +8,19 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Chiron+Hei+HK:ital,wght@0,200..900;1,200..900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Schoolbell&family=Square+Peg&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=195">
+  <link rel="stylesheet" href="styles.css?v=228">
 </head>
 <body>
   <header class="topbar">
     <div class="header-inner">
       <a class="logo header-logo" href="#">Sharon Nicole</a>
-      <nav class="nav header-nav" aria-label="Principal">
+      <nav class="nav header-nav" aria-label="Secciones del sitio">
+        <a href="#">Inicio</a>
+        <a href="#realidad">La realidad</a>
         <a href="#cursos-asesorias">Cursos</a>
+        <a href="#mama-florece">Por qué encaja</a>
+        <a href="#testimonios-caribbean">Testimonios</a>
         <a href="#sigueme-redes">Redes</a>
-        <a href="curso-soy-ese-bebe.html#faq">FAQ</a>
       </nav>
       <button
         type="button"
@@ -53,10 +56,10 @@
         <ul class="nav-drawer__list">
           <li><a href="#">Inicio</a></li>
           <li><a href="#realidad">La realidad</a></li>
+          <li><a href="#cursos-asesorias">Cursos</a></li>
           <li><a href="#mama-florece">Por qué encaja</a></li>
-          <li><a href="#cursos-asesorias">Cursos y asesorías</a></li>
           <li><a href="#testimonios-caribbean">Testimonios</a></li>
-          <li><a href="curso-soy-ese-bebe.html#faq">FAQ</a></li>
+          <li><a href="#sigueme-redes">Redes</a></li>
         </ul>
       </nav>
       <a class="btn nav-drawer__cta" href="#sigueme-redes">Sígueme</a>
@@ -76,7 +79,7 @@
         <div class="hero-sub-wrap">
           <p class="hero-sub">Ayudo a familias a lograr noches más tranquilas<br class="hero-sub__br-mobile" aria-hidden="true"><br class="hero-sub__br-tablet" aria-hidden="true"> y niños que duermen mejor desde recién nacidos hasta los 6 años.</p>
           <div class="hero-actions">
-            <a class="btn" href="#sigueme-redes">Lo Necesito</a>
+            <a class="btn" href="#cursos-asesorias">Lo Necesito</a>
           </div>
         </div>
       </div>
@@ -164,37 +167,43 @@
           <h2 id="cursos-asesorias-titulo" class="cursos-asesorias__title">Cursos, asesorías y guías:</h2>
           <div class="cursos-asesorias__grid" role="list">
           <article class="cursos-card" role="listitem">
-            <div class="cursos-card__visual">
-              <img class="cursos-card__img" src="img/Victoria sdc.jpeg" alt="Victoria" width="800" height="360" loading="lazy" decoding="async">
-            </div>
-            <div class="cursos-card__body">
-              <p class="cursos-card__kicker"><em>Para bebés de 0–4 meses</em></p>
-              <h3 class="cursos-card__heading">Curso Sueño desde Cero</h3>
-              <p class="cursos-card__text">La guía exacta con todo lo que tienes que hacer para establecer las bases correctas en el sueño de tu bebé desde que nace. Puedes agregar asesoría y acompañamiento.</p>
-              <a class="btn btn-cursos-detalle" href="curso-soy-ese-bebe.html">Ver detalles</a>
-            </div>
+            <a class="cursos-card__link" href="curso-sueno-desde-cero.html">
+              <div class="cursos-card__visual">
+                <img class="cursos-card__img" src="img/Victoria sdc.jpeg" alt="Victoria" width="800" height="360" loading="lazy" decoding="async">
+              </div>
+              <div class="cursos-card__body">
+                <p class="cursos-card__kicker"><em>Para bebés de 0–4 meses</em></p>
+                <h3 class="cursos-card__heading">Curso Sueño desde Cero</h3>
+                <p class="cursos-card__text">La guía exacta con todo lo que tienes que hacer para establecer las bases correctas en el sueño de tu bebé desde que nace. Puedes agregar asesoría y acompañamiento.</p>
+                <span class="btn btn-cursos-detalle">Ver detalles</span>
+              </div>
+            </a>
           </article>
           <article class="cursos-card" role="listitem">
-            <div class="cursos-card__visual">
-              <img class="cursos-card__img" src="img/Guillermo sc.jpeg" alt="Guillermo" width="800" height="360" loading="lazy" decoding="async">
-            </div>
-            <div class="cursos-card__body">
-              <p class="cursos-card__kicker"><em>Para niños de 4 meses a 2 años</em></p>
-              <h3 class="cursos-card__heading">Curso Noches Completas</h3>
-              <p class="cursos-card__text">De despertares constantes a noches corridas (10–12 horas) con un plan claro y respetuoso. Además, plan para enseñar a tu hijo a dormirse solito. Puedes agregar asesoría y acompañamiento.</p>
-              <a class="btn btn-cursos-detalle" href="curso-programa-avanzado-sueno.html">Ver detalles</a>
-            </div>
+            <a class="cursos-card__link" href="curso-noches-completas.html">
+              <div class="cursos-card__visual">
+                <img class="cursos-card__img" src="img/Guillermo sc.jpeg" alt="Guillermo" width="800" height="360" loading="lazy" decoding="async">
+              </div>
+              <div class="cursos-card__body">
+                <p class="cursos-card__kicker"><em>Para niños de 4 meses a 2 años</em></p>
+                <h3 class="cursos-card__heading">Curso Noches Completas</h3>
+                <p class="cursos-card__text">De despertares constantes a noches corridas (10–12 horas) con un plan claro y respetuoso. Además, plan para enseñar a tu hijo a dormirse solito. Puedes agregar asesoría y acompañamiento.</p>
+                <span class="btn btn-cursos-detalle">Ver detalles</span>
+              </div>
+            </a>
           </article>
           <article class="cursos-card" role="listitem">
-            <div class="cursos-card__visual">
-              <img class="cursos-card__img" src="img/Sharon llamada.jpeg" alt="Sharon en llamada de seguimiento" width="800" height="360" loading="lazy" decoding="async">
-            </div>
-            <div class="cursos-card__body">
-              <p class="cursos-card__kicker"><em>Videollamada 1:1 y seguimiento opcional</em></p>
-              <h3 class="cursos-card__heading">Agenda acompañamiento</h3>
-              <p class="cursos-card__text">Agenda si necesitas acompañamiento con el sueño de tu bebé de manera personalizada y que veamos tus rutinas y hagamos un plan con pasos claros para ti.</p>
-              <a class="btn btn-cursos-detalle" href="curso-llamada-seguimiento.html">Ver detalles</a>
-            </div>
+            <a class="cursos-card__link" href="curso-agenda-acompanamiento.html">
+              <div class="cursos-card__visual">
+                <img class="cursos-card__img" src="img/Sharon llamada.jpeg" alt="Sharon en llamada de seguimiento" width="800" height="360" loading="lazy" decoding="async">
+              </div>
+              <div class="cursos-card__body">
+                <p class="cursos-card__kicker"><em>Videollamada 1:1 y seguimiento opcional</em></p>
+                <h3 class="cursos-card__heading">Agenda acompañamiento</h3>
+                <p class="cursos-card__text">Agenda si necesitas acompañamiento con el sueño de tu bebé de manera personalizada y que veamos tus rutinas y hagamos un plan con pasos claros para ti.</p>
+                <span class="btn btn-cursos-detalle">Ver detalles</span>
+              </div>
+            </a>
           </article>
           <article class="cursos-card cursos-card--nsb" role="listitem">
             <div class="cursos-card__visual">
@@ -257,7 +266,7 @@
           <h2 id="mama-florece-titulo">Imagina vivir noches más predecibles, menos despertares y más descanso para toda la familia.</h2>
           <p class="mama-florece__lede">No necesitas hacerlo perfecto. Solo necesitas una guía clara, amorosa y posible para tu realidad.</p>
           <div class="mama-florece__actions">
-            <a class="btn" href="#sigueme-redes">Quiero empezar hoy</a>
+            <a class="btn" href="#cursos-asesorias">Quiero empezar hoy</a>
           </div>
         </div>
         <div class="mama-florece__lists" aria-label="Beneficios y enfoque">
@@ -390,11 +399,11 @@
             <dl class="social-follow__stats">
               <div class="social-follow__stat">
                 <dt class="sr-only">Publicaciones en Instagram</dt>
-                <dd><strong class="social-follow__stat-num">1.157</strong> <span class="social-follow__stat-label">Publicaciones</span></dd>
+                <dd><strong class="social-follow__stat-num">1.176</strong> <span class="social-follow__stat-label">Publicaciones</span></dd>
               </div>
               <div class="social-follow__stat">
                 <dt class="sr-only">Seguidores en Instagram</dt>
-                <dd><strong class="social-follow__stat-num">6.439</strong> <span class="social-follow__stat-label">Seguidores</span></dd>
+                <dd><strong class="social-follow__stat-num">8.222</strong> <span class="social-follow__stat-label">Seguidores</span></dd>
               </div>
             </dl>
             <a class="btn social-follow__cta" href="https://www.instagram.com/sharon.nicolett/" target="_blank" rel="noopener noreferrer">Sígueme en Instagram</a>
@@ -415,21 +424,25 @@
                   </span>
                 </a>
                 <p class="social-follow__label">Últimas publicaciones</p>
-                <p class="social-follow__feed-note">Miniaturas de muestra: al tocar abres tu perfil, donde están las publicaciones al día.</p>
+                <p class="social-follow__feed-note">Cada miniatura abre el post concreto. Las vistas previas son imágenes guardadas en la carpeta img (Instagram no permite confiar siempre en el enlace directo de la foto desde la web).</p>
                 <ul class="social-ig-grid">
-                  <li>
-                    <a class="social-ig-grid__link" href="https://www.instagram.com/sharon.nicolett/" target="_blank" rel="noopener noreferrer">
-                      <img src="img/Creadora.jpeg" alt="Ir al perfil de Instagram para ver la última publicación" width="800" height="800" loading="lazy">
+                  <!-- Miniaturas: img/… + enlace público al post -->
+                  <li class="social-ig-grid__item social-ig-grid__item--lead">
+                    <a class="social-ig-grid__link" href="https://www.instagram.com/reel/DWht8C-jD8b/" target="_blank" rel="noopener noreferrer">
+                      <img src="img/ig-reel-7-razones-despertar-noches.png" alt="Reel: 7 razones por las que tu hijo se despierta en las noches" width="800" height="800" loading="lazy">
+                      <span class="social-ig-grid__play" aria-hidden="true"></span>
                     </a>
                   </li>
                   <li>
-                    <a class="social-ig-grid__link" href="https://www.instagram.com/sharon.nicolett/" target="_blank" rel="noopener noreferrer">
-                      <img src="img/Foto Principal.png" alt="Ir al perfil de Instagram para ver publicaciones recientes" width="800" height="800" loading="lazy">
+                    <a class="social-ig-grid__link" href="https://www.instagram.com/reel/DW2Qqp-kQ9j/" target="_blank" rel="noopener noreferrer">
+                      <img src="img/ig-reel-durmieran-toda-noche.png" alt="Reel: cómo mis hijos durmieron toda la noche desde 2,5 meses" width="800" height="800" loading="lazy">
+                      <span class="social-ig-grid__play" aria-hidden="true"></span>
                     </a>
                   </li>
                   <li>
-                    <a class="social-ig-grid__link" href="https://www.instagram.com/sharon.nicolett/" target="_blank" rel="noopener noreferrer">
-                      <img src="img/curso-card-1.jpg" alt="Ver más en Instagram" width="800" height="800" loading="lazy">
+                    <a class="social-ig-grid__link" href="https://www.instagram.com/p/DXmQvRnDknh/?img_index=1" target="_blank" rel="noopener noreferrer">
+                      <img src="img/ig-post-cita-crianza.png" alt="Publicación: frase sobre crianza y @sharon.nicolett" width="800" height="800" loading="lazy">
+                      <span class="social-ig-grid__play" aria-hidden="true"></span>
                     </a>
                   </li>
                 </ul>
@@ -451,23 +464,23 @@
                   </span>
                 </a>
                 <p class="social-follow__label">Videos recientes</p>
-                <p class="social-follow__feed-note social-follow__feed-note--tiktok">Miniaturas de muestra; los vídeos nuevos están en TikTok.</p>
+                <p class="social-follow__feed-note social-follow__feed-note--tiktok">Cada miniatura abre el video concreto en TikTok.</p>
                 <ul class="social-tt-grid">
                   <li>
-                    <a class="social-tt-grid__link" href="https://www.tiktok.com/@sharon.nicolett" target="_blank" rel="noopener noreferrer">
-                      <img src="img/Foto Principal.png" alt="Ver videos en TikTok" width="360" height="640" loading="lazy">
+                    <a class="social-tt-grid__link" href="https://www.tiktok.com/@sharonicolett/video/7620840242056219924" target="_blank" rel="noopener noreferrer">
+                      <img src="img/tt-bebe-no-duerme-bien.png" alt="TikTok: ¿por qué tu bebé no está durmiendo bien?" width="360" height="640" loading="lazy">
                       <span class="social-tt-grid__play" aria-hidden="true"></span>
                     </a>
                   </li>
                   <li>
-                    <a class="social-tt-grid__link" href="https://www.tiktok.com/@sharon.nicolett" target="_blank" rel="noopener noreferrer">
-                      <img src="img/Creadora.jpeg" alt="Ver más en TikTok" width="360" height="640" loading="lazy">
+                    <a class="social-tt-grid__link" href="https://www.tiktok.com/@sharonicolett/video/7618268645650713877" target="_blank" rel="noopener noreferrer">
+                      <img src="img/tt-rutina-siesta.png" alt="TikTok: rutina de siesta, bebé 1 año y medio" width="360" height="640" loading="lazy">
                       <span class="social-tt-grid__play" aria-hidden="true"></span>
                     </a>
                   </li>
                   <li>
-                    <a class="social-tt-grid__link" href="https://www.tiktok.com/@sharon.nicolett" target="_blank" rel="noopener noreferrer">
-                      <img src="img/Foto Principal.png" alt="Abrir perfil de TikTok" width="360" height="640" loading="lazy">
+                    <a class="social-tt-grid__link" href="https://www.tiktok.com/@sharonicolett/video/7620969246452878612" target="_blank" rel="noopener noreferrer">
+                      <img src="img/tt-sueno-independiente.png" alt="TikTok: el sueño independiente en tus hijos" width="360" height="640" loading="lazy">
                       <span class="social-tt-grid__play" aria-hidden="true"></span>
                     </a>
                   </li>
@@ -498,7 +511,7 @@
             </div>
             <div class="site-footer__cols">
               <nav class="site-footer__col" aria-label="Enlaces">
-                <h3 class="site-footer__heading">Explorá</h3>
+                <h3 class="site-footer__heading">Explora</h3>
                 <ul class="site-footer__list">
                   <li><a href="#cursos-asesorias">Cursos y asesorías</a></li>
                   <li><a href="#realidad">La realidad</a></li>
@@ -510,19 +523,18 @@
                 <h3 class="site-footer__heading">Redes</h3>
                 <ul class="site-footer__list">
                   <li><a href="https://www.instagram.com/sharon.nicolett/" target="_blank" rel="noopener noreferrer">Instagram @sharon.nicolett</a></li>
-                  <li><a href="https://www.tiktok.com/@sharon.nicolett" target="_blank" rel="noopener noreferrer">TikTok @sharon.nicolett</a></li>
+                  <li><a href="https://www.tiktok.com/@sharonicolett" target="_blank" rel="noopener noreferrer">TikTok @sharonicolett</a></li>
                   <li><a href="https://www.instagram.com/makinghomeshappen/" target="_blank" rel="noopener noreferrer">@makinghomeshappen</a></li>
-                  <li><a href="#sigueme-redes">Ver bloque «Sígueme»</a></li>
+                  <li><a href="https://www.instagram.com/nicolettastudio/" target="_blank" rel="noopener noreferrer">@nicolettastudio</a></li>
                 </ul>
               </div>
               <div class="site-footer__col">
-                <h3 class="site-footer__heading">Curso destacado</h3>
+                <h3 class="site-footer__heading">Cursos</h3>
                 <ul class="site-footer__list">
-                  <li><a href="curso-soy-ese-bebe.html">Sueño desde cero · SoyEseBebé</a></li>
-                  <li><a href="curso-soy-ese-bebe.html#faq">FAQ del curso</a></li>
-                  <li><a href="curso-programa-avanzado-sueno.html">Curso Noches Completas</a></li>
-                  <li><a href="curso-llamada-seguimiento.html">Agenda acompañamiento</a></li>
-                  <li><a href="curso-noches-sin-batallas.html">Noches sin batallas</a></li>
+                  <li><a href="curso-sueno-desde-cero.html">Sueño desde cero</a></li>
+                  <li><a href="curso-noches-completas.html">Curso Noches Completas</a></li>
+                  <li><a href="curso-agenda-acompanamiento.html">Agenda acompañamiento</a></li>
+                  <li><a href="#cursos-asesorias">Noches sin batallas</a></li>
                 </ul>
               </div>
             </div>
@@ -537,7 +549,6 @@
             <nav class="site-footer__mini" aria-label="Secundario">
               <a href="#cursos-asesorias">Cursos</a>
               <a href="#sigueme-redes">Contacto&nbsp;/&nbsp;redes</a>
-              <a href="curso-soy-ese-bebe.html#faq">FAQ</a>
             </nav>
           </div>
         </div>

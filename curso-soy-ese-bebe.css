@@ -862,22 +862,6 @@ body.seb-page--acompanamiento .seb-faq__list summary {
   font-weight: 400;
 }
 
-body.seb-page--noches-completas #para-quien .para-quien-sanctuary__badge,
-body.seb-page--noches-completas #para-quien .para-quien-sanctuary__title,
-body.seb-page--noches-completas #para-quien .para-quien-sanctuary__col-title,
-body.seb-page--sueno-desde-cero #para-quien .para-quien-sanctuary__badge,
-body.seb-page--sueno-desde-cero #para-quien .para-quien-sanctuary__title,
-body.seb-page--sueno-desde-cero #para-quien .para-quien-sanctuary__col-title {
-  font-family: "Schoolbell", cursive;
-  font-weight: 400;
-}
-
-body.seb-page--noches-completas #para-quien .para-quien-sanctuary__badge,
-body.seb-page--sueno-desde-cero #para-quien .para-quien-sanctuary__badge {
-  text-transform: none;
-  letter-spacing: 0.04em;
-}
-
 body.seb-page--noches-completas .seb-price__label,
 body.seb-page--sueno-desde-cero .seb-price__label,
 body.seb-page--acompanamiento .seb-price__label {
@@ -924,6 +908,31 @@ body.seb-page--noches-completas .seb-hero__h1-curso {
 
 body.seb-page--noches-completas .seb-hero__h1 .seb-hero__h1-olive {
   color: var(--seb-nc-headline-blue);
+}
+
+/* Agenda acompañamiento: hero — foto algo más pequeña y esquinas redondeadas por completo */
+body.seb-page--acompanamiento .seb-hero-media {
+  border-radius: 22px;
+  overflow: hidden;
+  width: min(100%, calc(100% - 20px));
+  max-width: 560px;
+  margin-inline: auto;
+}
+
+body.seb-page--acompanamiento .seb-hero-media__img {
+  border-radius: 22px;
+  min-height: 378px;
+}
+
+@media (max-width: 900px) {
+  body.seb-page--acompanamiento .seb-hero-media {
+    width: min(100%, calc(100% - 16px));
+    max-width: none;
+  }
+
+  body.seb-page--acompanamiento .seb-hero-media__img {
+    min-height: 288px;
+  }
 }
 
 /* Agenda acompañamiento: hero violeta suave · sidebar mismo azul que usaba precio del 2º curso */
