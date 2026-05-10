@@ -949,8 +949,8 @@ body.nav-drawer-open .nav-drawer {
 }
 
 .quote-checks--bubbles li:nth-child(4) {
-  background: #fddcec;
-  color: #c4417f;
+  background: #e5f0fb;
+  color: #1e6ba8;
 }
 
 @media (max-width: 1199px) {
@@ -1181,7 +1181,7 @@ body.nav-drawer-open .nav-drawer {
   display: block;
 }
 
-/* Noches sin batallas en blanco y negro y sin navegación (próximamente) */
+/* Opcional: tarjeta en escala de grises (p. ej. curso no disponible) */
 .cursos-card--nsb .cursos-card__img {
   filter: grayscale(100%);
 }

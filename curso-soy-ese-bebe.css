@@ -23,6 +23,8 @@
   --shadow-pink: rgba(244, 114, 168, 0.35);
   /* Azul sidebar / título Noches Completas; reutilizable en otras landings */
   --seb-nc-headline-blue: #6a93aa;
+  /* Viñeta azul (p. ej. acompañamiento opcional en sidebar) */
+  --seb-ico-blue: #5b9bd5;
   /* Fondos modalidades (tomados de la intensidad de marca de los tags rosa/amarillo/verde) */
   --seb-tier-bg-pink: #faeaf1;
   --seb-tier-bg-yellow: #fff7dd;
@@ -690,6 +692,9 @@ body.seb-page {
 .seb-ico--green {
   background: var(--green);
 }
+.seb-ico--blue {
+  background: var(--seb-ico-blue);
+}
 
 .seb-price__actions {
   display: flex;
@@ -756,6 +761,31 @@ body.seb-page {
 .seb-faq__list details p {
   margin: 10px 0 0;
   color: var(--muted);
+}
+
+.seb-faq__list details p + p {
+  margin-top: 0.65rem;
+}
+
+.seb-faq__list details .seb-faq__bullets {
+  margin: 8px 0 0 1.15em;
+  padding-left: 0.35em;
+  color: var(--muted);
+}
+
+.seb-faq__list details .seb-faq__bullets li {
+  margin: 0.35em 0;
+}
+
+.seb-faq__list details a {
+  color: var(--pink-dark);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.seb-faq__list details a:hover {
+  color: var(--olive);
 }
 
 /* —— Footer —— */
