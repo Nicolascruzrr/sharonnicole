@@ -1,3 +1,11 @@
+(function markGoogleChrome() {
+  const ua = typeof navigator !== "undefined" ? navigator.userAgent || "" : "";
+  const isEdge = /\bEdg(e|A|iOS)?\//i.test(ua);
+  const isChrome =
+    !isEdge && (/\bChrom(e|ium)\//.test(ua) || /\bCriOS\//.test(ua));
+  if (isChrome) document.documentElement.classList.add("ua-chrome");
+})();
+
 const topbar = document.querySelector(".topbar");
 const SCROLL_TOPBAR = 32;
 

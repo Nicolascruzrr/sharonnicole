@@ -642,31 +642,26 @@ body.nav-drawer-open .nav-drawer {
   margin: 0;
   white-space: normal;
   max-width: none;
-}
-
-/* Salto tras «tranquilas» sólo ≤768px (hero móvil / fondo celular); otros anchos igual que texto continuo */
-.hero-content .hero-sub br.hero-sub__br-mobile {
-  display: none;
-}
-
-.hero-content .hero-sub br.hero-sub__br-tablet {
-  display: none;
+  overflow-wrap: break-word;
+  text-wrap: pretty;
 }
 
 @media (max-width: 768px) {
-  .hero-content .hero-sub br.hero-sub__br-mobile {
-    display: inline;
-  }
-
   .hero-content .hero-sub {
     font-size: clamp(0.95rem, 4.2vw, 1.08rem);
     line-height: 1.5;
   }
 }
 
-@media (min-width: 769px) and (max-width: 1199px) {
-  .hero-content .hero-sub br.hero-sub__br-tablet {
-    display: inline;
+/* Hero <p>: un poco más chico solo en Google Chrome (móvil y escritorio) */
+html.ua-chrome .hero-content .hero-sub {
+  font-size: clamp(1.05rem, 1.85vw, 1.12rem);
+}
+
+@media (max-width: 768px) {
+  html.ua-chrome .hero-content .hero-sub {
+    font-size: clamp(0.86rem, 3.85vw, 0.98rem);
+    line-height: 1.5;
   }
 }
 
