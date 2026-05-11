@@ -2468,13 +2468,14 @@ section.mama-florece {
 
 /*
  * Teléfonos ≤639px: fondo celular.
- * NO usar background-attachment: fixed en móvil: Safari iOS y Chrome Android crean un viewport
- * “fantasma” y el fondo salta con la barra de URL o al hacer scroll (en iPad/tablet el treat suele ser distinto).
+ * NO usar background-attachment: fixed en móvil (viewport “fantasma” en Safari/Chrome).
+ * Altura con 100svh (viewport pequeño estable), no 100dvh: si la barra del navegador cambia de
+ * tamaño al hacer scroll, dvh cambia y background-size: cover se re-escala → sensación de “zoom”.
  */
 @media (max-width: 639px) {
   .hero {
     min-height: 100vh;
-    min-height: 100dvh;
+    min-height: 100svh;
     background-color: #fdf6f4;
     background-image: url("img/fondo%20celular.png");
     background-repeat: no-repeat;
@@ -2482,6 +2483,9 @@ section.mama-florece {
     background-position: 78% bottom;
     background-attachment: scroll;
     -webkit-tap-highlight-color: transparent;
+    /* Capa propia: menos repintados raros al scroll en WebKit */
+    isolation: isolate;
+    transform: translateZ(0);
   }
 
   .hero-visual {
