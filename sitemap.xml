@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Si tu sitio público usa https://www.sharonnicole.com, reemplaza el dominio en cada <loc>. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://sharonnicole.com/</loc>
+  </url>
+  <url>
+    <loc>https://sharonnicole.com/curso-sueno-desde-cero.html</loc>
+  </url>
+  <url>
+    <loc>https://sharonnicole.com/curso-noches-completas.html</loc>
+  </url>
+  <url>
+    <loc>https://sharonnicole.com/curso-agenda-acompanamiento.html</loc>
+  </url>
+  <url>
+    <loc>https://sharonnicole.com/curso-el-arte-de-dormir.html</loc>
+  </url>
+</urlset>

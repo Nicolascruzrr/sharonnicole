@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Chiron+Hei+HK:ital,wght@0,200..900;1,200..900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Schoolbell&family=Square+Peg&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=232">
+  <link rel="stylesheet" href="styles.css?v=247">
 </head>
 <body>
   <header class="topbar">
@@ -26,7 +26,6 @@
         <a href="#">Inicio</a>
         <a href="#realidad">Realidad</a>
         <a href="#cursos-asesorias">Cursos</a>
-        <a href="#mama-florece">Por qué encaja</a>
         <a href="#testimonios-caribbean">Testimonios</a>
         <a href="#sigueme-redes">Redes</a>
       </nav>
@@ -75,7 +74,7 @@
   </div>
 
   <main>
-    <section class="hero section">
+    <section id="inicio" class="hero section" aria-label="Sharon Nicole con su familia, fondo decorativo">
       <picture class="hero-visual">
         <source media="(max-width: 768px)" srcset="img/fondo%20celular.png">
         <img class="hero-image" src="img/Foto Principal.png" alt="Mama con sus hijos en un ambiente familiar y calido" fetchpriority="high" decoding="async">
@@ -85,7 +84,7 @@
           <h1><span class="hero-title-main">Tu bebé si puede dormir...</span><span class="hero-title-accent">y tu también.</span></h1>
         </div>
         <div class="hero-sub-wrap">
-          <p class="hero-sub">Ayudo a familias a lograr noches más tranquilas y niños que duermen mejor desde recién nacidos hasta los 6 años.</p>
+          <p class="hero-sub">Ayudo a familias a lograr noches más tranquilas<br class="hero-sub__br-mid" aria-hidden="true"> y niños que duermen mejor desde recién nacidos hasta los 6 años.</p>
           <div class="hero-actions">
             <a class="btn" href="#cursos-asesorias">Lo Necesito</a>
           </div>
@@ -113,39 +112,39 @@
         <div class="realidad-copy">
           <p class="realidad-eyebrow">La realidad</p>
           <p class="realidad-lede">Nadie te explica realmente cómo funciona el sueño de tu bebé.</p>
-          <h2 id="realidad-titulo" class="realidad-title">Si estás aquí, probablemente te sientes así:</h2>
+          <h2 id="realidad-titulo" class="realidad-title">Si estás aquí,<br> probablemente te sientes así:</h2>
           <ul class="realidad-list" role="list">
-            <li class="realidad-item" role="listitem">
-              <span class="realidad-item__num" aria-hidden="true">01</span>
+            <li class="realidad-item realidad-item--pink" role="listitem">
+              <span class="realidad-item__num" aria-hidden="true">1</span>
               <div class="realidad-item__body">
                 <h3 class="realidad-item__title">Despertares interminables</h3>
                 <p class="realidad-item__desc">Tu bebé se despierta una y otra vez y tú ya ni sabes en qué hora de la noche estás.</p>
                 <p class="realidad-item__desc">Te acuestas cansada y te levantas más cansada todavía.</p>
               </div>
             </li>
-            <li class="realidad-item" role="listitem">
-              <span class="realidad-item__num" aria-hidden="true">02</span>
+            <li class="realidad-item realidad-item--orange" role="listitem">
+              <span class="realidad-item__num" aria-hidden="true">2</span>
               <div class="realidad-item__body">
                 <h3 class="realidad-item__title">Miedo constante a &lsquo;hacerlo mal&rsquo;</h3>
                 <p class="realidad-item__desc">Cada decisión pesa. Si lo duermo en brazos ¿estoy creando dependencia? Si lo dejo ¿lo estoy abandonando? Nada se siente claro.</p>
               </div>
             </li>
-            <li class="realidad-item" role="listitem">
-              <span class="realidad-item__num" aria-hidden="true">03</span>
+            <li class="realidad-item realidad-item--yellow" role="listitem">
+              <span class="realidad-item__num" aria-hidden="true">3</span>
               <div class="realidad-item__body">
                 <h3 class="realidad-item__title">Agotamiento que no se quita</h3>
                 <p class="realidad-item__desc">No estás disfrutando esta etapa como pensabas. No es solo sueño. Es irritabilidad. Es cero paciencia. Es sentir que no estás siendo la mamá que quieres ser. Y eso duele.</p>
               </div>
             </li>
-            <li class="realidad-item" role="listitem">
-              <span class="realidad-item__num" aria-hidden="true">04</span>
+            <li class="realidad-item realidad-item--green" role="listitem">
+              <span class="realidad-item__num" aria-hidden="true">4</span>
               <div class="realidad-item__body">
                 <h3 class="realidad-item__title">Frustración porque &lsquo;nada funciona&rsquo;</h3>
                 <p class="realidad-item__desc">Intentas rutinas, intentas horarios, intentas consejos. Pero cada noche parece empezar desde cero.<br> Y empiezas a dudar de ti.</p>
               </div>
             </li>
-            <li class="realidad-item" role="listitem">
-              <span class="realidad-item__num" aria-hidden="true">05</span>
+            <li class="realidad-item realidad-item--pink" role="listitem">
+              <span class="realidad-item__num" aria-hidden="true">5</span>
               <div class="realidad-item__body">
                 <h3 class="realidad-item__title">La idea de que &lsquo;esto es lo que toca&rsquo;</h3>
                 <p class="realidad-item__desc">Te dijeron que es normal. Que es una etapa. Que aguantes. Pero dentro de ti sabes,<br> esto no debería sentirse así de pesado.</p>
@@ -232,7 +231,7 @@
     <section class="section cursos-blobs reveal" aria-labelledby="cursos-blobs-titulo">
       <div class="cursos-blobs__band">
         <div class="container cursos-blobs__wrap">
-          <h2 id="cursos-blobs-titulo" class="cursos-blobs__heading">No enseño &ldquo;trucos para dormir&rdquo;. Enseño estructura.</h2>
+          <h2 id="cursos-blobs-titulo" class="cursos-blobs__heading">Más que &ldquo;trucos&rdquo; te enseño a entender el sueño de tu bebé de verdad.</h2>
           <p class="cursos-blobs__lede">Porque los bebés responden mejor a patrones predecibles, y esto regula su sueño, su sistema nervioso y mejora la dinámica del hogar.</p>
           <ul class="cursos-blobs__grid">
             <li>
@@ -252,14 +251,14 @@
             <li>
               <div class="cursos-blob cursos-blob--menta">
                 <span class="cursos-blob__body">
-                  <span class="cursos-blob__title">Acompañamiento respetuoso</span>
+                  <span class="cursos-blob__title">Acompañamiento<br>respetuoso</span>
                 </span>
               </div>
             </li>
             <li>
               <div class="cursos-blob cursos-blob--rosa">
                 <span class="cursos-blob__body">
-                  <span class="cursos-blob__title">Seguridad y autonomía al dormir</span>
+                  <span class="cursos-blob__title">Seguridad y<br>autonomía al dormir</span>
                 </span>
               </div>
             </li>
@@ -378,7 +377,7 @@
 
     <section class="section reveal sharon-presentacion" aria-labelledby="sharon-titulo">
       <div class="container split">
-        <div>
+        <div class="sharon-presentacion__copy">
           <p class="kicker">Ahora me presento</p>
           <h2 id="sharon-titulo">Hola, soy Sharon</h2>
           <p>Soy esposa, mamá de dos; Victoria y Guillermo y creadora de Making Homes Happen, un movimiento que invita a rediseñar la vida desde el hogar.</p>
@@ -511,16 +510,16 @@
                 <span class="site-footer__logo-text logo">Sharon Nicole</span>
               </a>
               <p class="site-footer__desc">
-                Consultora de sueño infantil certificada. Creadora de <strong>Making Homes Happen</strong>: acompañamiento honesto sobre maternidad, hogar y descanso.
+                Consultora de sueño infantil.<br> Creadora de <strong>Making Homes Happen</strong>: acompañamiento honesto sobre maternidad, hogar y descanso.
               </p>
             </div>
             <div class="site-footer__cols">
               <nav class="site-footer__col" aria-label="Enlaces">
                 <h3 class="site-footer__heading">Explora</h3>
                 <ul class="site-footer__list">
-                  <li><a href="#cursos-asesorias">Cursos y asesorías</a></li>
-                  <li><a href="#realidad">La realidad</a></li>
-                  <li><a href="#mama-florece">Por qué encaja</a></li>
+                  <li><a href="#inicio">Inicio</a></li>
+                  <li><a href="#realidad">Realidad</a></li>
+                  <li><a href="#cursos-asesorias">Cursos</a></li>
                   <li><a href="#testimonios-caribbean">Testimonios</a></li>
                 </ul>
               </nav>

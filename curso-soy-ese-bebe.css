@@ -244,6 +244,8 @@ body.seb-page {
   color: var(--muted);
   max-width: 34em;
   margin: 0 0 22px;
+  text-align: justify;
+  text-wrap: pretty;
 }
 
 .seb-chips {
@@ -464,6 +466,17 @@ body.seb-page {
   color: var(--green);
 }
 
+/* Landings (body.seb-page): columna principal justificada */
+body.seb-page .seb-prose p {
+  text-align: justify;
+  text-wrap: pretty;
+}
+
+body.seb-page .seb-prose article.seb-section--green .seb-achieve-list li {
+  text-align: justify;
+  text-wrap: pretty;
+}
+
 .seb-prose p {
   margin: 0 0 16px;
   color: var(--text);
@@ -529,6 +542,23 @@ body.seb-page {
   font-size: 0.9375rem;
   color: var(--white);
   flex-shrink: 0;
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.seb-num:hover {
+  transform: scale(1.07);
+  box-shadow: 0 6px 18px rgba(44, 24, 16, 0.18);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .seb-num {
+    transition: none;
+  }
+
+  .seb-num:hover {
+    transform: none;
+    box-shadow: none;
+  }
 }
 
 .seb-num--pink {
@@ -539,7 +569,7 @@ body.seb-page {
 }
 .seb-num--yellow {
   background: var(--yellow);
-  color: var(--yellow-dark);
+  color: var(--white);
 }
 .seb-num--green {
   background: var(--green);
@@ -548,6 +578,8 @@ body.seb-page {
 .seb-learn-item p {
   margin: 0;
   font-weight: 500;
+  text-align: justify;
+  text-wrap: pretty;
 }
 
 /* Yellow strip */
@@ -625,6 +657,7 @@ body.seb-page {
 
 .seb-price__label {
   position: relative;
+  font-family: "Nunito", system-ui, sans-serif;
   font-size: 0.6875rem;
   font-weight: 800;
   letter-spacing: 2px;
@@ -644,8 +677,9 @@ body.seb-page {
 
 .seb-price__note {
   position: relative;
+  font-family: "Nunito", system-ui, sans-serif;
   font-size: 0.875rem;
-  font-weight: 500;
+  font-weight: 600;
   opacity: 0.95;
   margin: 0;
 }
@@ -837,7 +871,33 @@ body.seb-page {
   }
 }
 
-/* Cursos con plantilla SoyEseBebé: Schoolbell en titulares */
+/*
+ * Etiquetas de sección (.seb-tag): mismo criterio que .seb-badge del hero
+ * (Nunito, pastilla crema, texto dorado / marrón suave).
+ */
+body.seb-page--noches-completas .seb-tag,
+body.seb-page--sueno-desde-cero .seb-tag,
+body.seb-page--acompanamiento .seb-tag {
+  font-family: "Nunito", system-ui, sans-serif;
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: 0.02em;
+  font-size: 0.8125rem;
+  background: var(--yellow-light);
+  color: var(--yellow-dark);
+  padding: 8px 14px;
+  gap: 0;
+}
+
+/* Igual que .seb-badge: sin viñeta circular */
+body.seb-page--noches-completas .seb-tag::before,
+body.seb-page--sueno-desde-cero .seb-tag::before,
+body.seb-page--acompanamiento .seb-tag::before {
+  content: none;
+  display: none;
+}
+
+/* Títulos (hero, bloques, FAQ, precio): Schoolbell — sin tocar .seb-tag arriba */
 body.seb-page--noches-completas .seb-hero__h1,
 body.seb-page--noches-completas .seb-hero__h1 .seb-hero__h1-curso,
 body.seb-page--noches-completas .seb-hero__h1 .seb-hero__h1-olive,
@@ -849,16 +909,6 @@ body.seb-page--acompanamiento .seb-hero__h1 .seb-hero__h1-curso,
 body.seb-page--acompanamiento .seb-hero__h1 .seb-hero__h1-olive {
   font-family: "Schoolbell", cursive;
   font-weight: 400;
-}
-
-body.seb-page--noches-completas .seb-tag,
-body.seb-page--sueno-desde-cero .seb-tag,
-body.seb-page--acompanamiento .seb-tag {
-  font-family: "Schoolbell", cursive;
-  font-weight: 400;
-  text-transform: none;
-  letter-spacing: 0.04em;
-  font-size: clamp(0.8125rem, 2.2vw, 0.9375rem);
 }
 
 body.seb-page--noches-completas .seb-prose h2,
@@ -895,15 +945,15 @@ body.seb-page--acompanamiento .seb-faq__list summary {
 body.seb-page--noches-completas .seb-price__label,
 body.seb-page--sueno-desde-cero .seb-price__label,
 body.seb-page--acompanamiento .seb-price__label {
-  font-family: "Schoolbell", cursive;
-  font-weight: 400;
+  font-family: "Nunito", system-ui, sans-serif;
+  font-weight: 800;
 }
 
 body.seb-page--noches-completas .seb-price__note,
 body.seb-page--sueno-desde-cero .seb-price__note,
 body.seb-page--acompanamiento .seb-price__note {
-  font-family: "Schoolbell", cursive;
-  font-weight: 400;
+  font-family: "Nunito", system-ui, sans-serif;
+  font-weight: 600;
   font-size: calc(0.875rem + 1.5px);
 }
 
@@ -1142,4 +1192,145 @@ body.seb-page--acompanamiento .seb-tier-intro .seb-tag {
 
 body.seb-page--acompanamiento .seb-tier-intro h2 {
   margin-top: 0.85rem;
+}
+
+/* Botón «Agendar» (Solo llamada): mismo aspecto que el enlace */
+body.seb-page--acompanamiento button.seb-tier__agenda-link {
+  font: inherit;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+/* Modal: Calendly → Hotmart (solo página agenda) */
+html.seb-flow-modal-open,
+body.seb-flow-modal-open {
+  overflow: hidden;
+}
+
+.seb-flow-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(0.75rem, 3vw, 1.25rem);
+  box-sizing: border-box;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.22s ease, visibility 0.22s ease;
+}
+
+.seb-flow-modal.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.seb-flow-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(62, 47, 43, 0.45);
+  cursor: pointer;
+}
+
+.seb-flow-modal__dialog {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 920px);
+  /* Casi todo el alto del viewport: el calendario usa el espacio restante */
+  height: min(900px, calc(100vh - 2 * clamp(0.75rem, 3vw, 1.25rem)));
+  max-height: min(900px, calc(100vh - 2 * clamp(0.75rem, 3vw, 1.25rem)));
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  margin: 0;
+  padding: clamp(1rem, 3vw, 1.5rem) clamp(1rem, 3vw, 1.75rem) 1rem;
+  border-radius: 18px;
+  background: var(--cream);
+  box-shadow: 0 20px 50px rgba(44, 24, 16, 0.18);
+  outline: none;
+}
+
+@supports (height: 100dvh) {
+  .seb-flow-modal__dialog {
+    height: min(900px, calc(100dvh - 2 * clamp(0.75rem, 3vw, 1.25rem)));
+    max-height: min(900px, calc(100dvh - 2 * clamp(0.75rem, 3vw, 1.25rem)));
+  }
+}
+
+.seb-flow-modal__close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 10px;
+  background: rgba(44, 24, 16, 0.06);
+  color: var(--text);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.seb-flow-modal__close:hover {
+  background: rgba(44, 24, 16, 0.1);
+}
+
+.seb-flow-modal__title {
+  font-family: "Lora", Georgia, serif;
+  font-size: clamp(1.2rem, 2.8vw, 1.5rem);
+  font-weight: 600;
+  margin: 0 2.25rem 0.75rem 0;
+  color: var(--text);
+  flex-shrink: 0;
+}
+
+.seb-flow-modal__calendly-host {
+  flex: 1 1 auto;
+  min-height: 0;
+  margin: 0 -4px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Wrapper que inyecta Calendly (.calendly-inline-widget) */
+.seb-flow-modal__calendly-host .calendly-inline-widget {
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  height: 100% !important;
+  max-width: 100% !important;
+}
+
+/* Calendly fija altura en línea; forzamos a llenar el panel */
+.seb-flow-modal__calendly-host iframe {
+  flex: 1 1 auto;
+  width: 100% !important;
+  min-height: 100% !important;
+  height: 100% !important;
+  border: 0;
+  border-radius: 10px;
+}
+
+.seb-flow-modal__error {
+  margin: 0;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: var(--pink-light);
+  color: var(--text);
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.seb-flow-modal__error a {
+  color: var(--pink-dark);
+  font-weight: 600;
 }

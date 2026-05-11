@@ -19,7 +19,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css?v=193">
-  <link rel="stylesheet" href="curso-soy-ese-bebe.css?v=24">
+  <link rel="stylesheet" href="curso-soy-ese-bebe.css?v=37">
 </head>
 <body class="seb-page seb-page--acompanamiento">
   <header class="topbar">
@@ -99,7 +99,7 @@
             <h2 id="seb-about-title">Un espacio donde <em>vemos tu caso entero</em> y ordenamos próximos pasos.</h2>
             <p>Una videollamada 1:1 conmigo donde analizamos el sueño de tu bebé según su edad, su rutina actual y tu dinámica familiar. Y en base a eso hacemos un plan claro, adaptado a ti. Sales con pasos concretos que puedes empezar a aplicar ese mismo día.</p>
             <div class="seb-cta-band">
-              <a class="seb-btn seb-btn--pill seb-btn--pink seb-btn--block" href="index.html#sigueme-redes">Agendar llamada</a>
+              <a class="seb-btn seb-btn--pill seb-btn--pink seb-btn--block" href="#modalidades">Agendar llamada</a>
             </div>
           </article>
 
@@ -121,10 +121,6 @@
               <li>✔ Ordenar</li>
               <li>✔ Definir un plan claro y ejecutar</li>
             </ul>
-
-            <div class="seb-cta-band">
-              <a class="seb-btn seb-btn--pink seb-btn--block seb-btn--pill" href="index.html#sigueme-redes">Agendar llamada</a>
-            </div>
           </article>
 
           <article class="seb-block seb-section--green">
@@ -143,20 +139,16 @@
               <li>Cualquier duda puntual que tengas</li>
             </ul>
 
-            <div class="seb-cta-band">
-              <a class="seb-btn seb-btn--pill seb-btn--pink seb-btn--block" href="index.html#sigueme-redes">Agendar llamada</a>
-            </div>
-
             <div id="modalidades" class="seb-tier-intro">
               <span class="seb-tag seb-tag--orange">Modalidades</span>
-              <h2>Elegís la opción que <em>mejor encaje</em> contigo.</h2>
+              <h2>Elige la opción que <em>mejor encaje</em> contigo.</h2>
             </div>
 
             <div class="seb-tier-cards" role="list">
               <div class="seb-tier seb-tier--pink" role="listitem">
                 <p class="seb-tier__name">Solo llamada</p>
                 <ul class="seb-achieve-list">
-                  <li>✔ Videollamada de 45 minutos</li>
+                  <li>✔ Videollamada de 60 minutos</li>
                   <li>✔ Diagnóstico de tu caso</li>
                   <li>✔ Plan de acción claro</li>
                 </ul>
@@ -166,7 +158,14 @@
                 </ul>
                 <div class="seb-tier__price-row">
                   <span class="seb-tier__amount">$60 USD</span>
-                  <a class="seb-tier__agenda-link" href="index.html#sigueme-redes">Agendar</a>
+                  <button
+                    type="button"
+                    class="seb-tier__agenda-link seb-tier__agenda-link--open-calendly-flow"
+                    data-seb-calendly-flow-open
+                    data-calendly-url="https://calendly.com/sharonnicolett/30min"
+                    data-hotmart-url="https://pay.hotmart.com/R105774148D"
+                    aria-haspopup="dialog"
+                  >Agendar</button>
                 </div>
               </div>
 
@@ -183,7 +182,14 @@
                 </ul>
                 <div class="seb-tier__price-row">
                   <span class="seb-tier__amount">$150 USD</span>
-                  <a class="seb-tier__agenda-link" href="index.html#sigueme-redes">Agendar</a>
+                  <button
+                    type="button"
+                    class="seb-tier__agenda-link seb-tier__agenda-link--open-calendly-flow"
+                    data-seb-calendly-flow-open
+                    data-calendly-url="https://calendly.com/sharonnicolett/llamada-seguimiento-7-dias"
+                    data-hotmart-url="https://pay.hotmart.com/O105774282P"
+                    aria-haspopup="dialog"
+                  >Agendar</button>
                 </div>
               </div>
 
@@ -200,17 +206,20 @@
                 </ul>
                 <div class="seb-tier__price-row">
                   <span class="seb-tier__amount">$250 USD</span>
-                  <a class="seb-tier__agenda-link" href="index.html#sigueme-redes">Agendar</a>
+                  <button
+                    type="button"
+                    class="seb-tier__agenda-link seb-tier__agenda-link--open-calendly-flow"
+                    data-seb-calendly-flow-open
+                    data-calendly-url="https://calendly.com/sharonnicolett/llamada-seguimiento-15-dias"
+                    data-hotmart-url="https://pay.hotmart.com/T105774317I"
+                    aria-haspopup="dialog"
+                  >Agendar</button>
                 </div>
               </div>
             </div>
 
             <div class="seb-bonus-box">
               <strong>Bonus</strong> — Si luego decides entrar a uno de mis programas, recibes un 15&nbsp;% de descuento en el curso que escojas.
-            </div>
-
-            <div class="seb-cta-band">
-              <a class="seb-btn seb-btn--pill seb-btn--pink seb-btn--block" href="index.html#sigueme-redes">Agendar llamada</a>
             </div>
           </article>
         </div>
@@ -226,7 +235,7 @@
               <ul class="seb-price-features">
                 <li>
                   <span class="seb-ico seb-ico--pink" aria-hidden="true"></span>
-                  <span>Solo llamada — $60 (45&nbsp;min y plan claro)</span>
+                  <span>Solo llamada — $60 (60&nbsp;min y plan claro)</span>
                 </li>
                 <li>
                   <span class="seb-ico seb-ico--yellow" aria-hidden="true"></span>
@@ -238,12 +247,11 @@
                 </li>
                 <li>
                   <span class="seb-ico seb-ico--orange" aria-hidden="true"></span>
-                  <span>15&nbsp;% menos en cualquier programa si después te inscribís</span>
+                  <span>15&nbsp;% menos en cualquier programa si después te inscribes</span>
                 </li>
               </ul>
               <div class="seb-price__actions">
-                <a class="seb-btn seb-btn--pink seb-btn--block" href="index.html#sigueme-redes">Agendar llamada</a>
-                <a class="seb-btn seb-btn--ghost seb-btn--block" href="#modalidades">Ver modalidades</a>
+                <a class="seb-btn seb-btn--pink seb-btn--block" href="#modalidades">Agendar llamada</a>
                 <a class="seb-btn seb-btn--ghost seb-btn--block" href="index.html#cursos-asesorias">Ver otros cursos</a>
               </div>
               <p class="seb-price__fine">Videollamada 1:1 · Sin juicios · Enfoque respetuoso</p>
@@ -255,8 +263,7 @@
 
     <section id="faq" class="seb-faq" aria-labelledby="seb-faq-title">
       <div class="seb-wrap seb-faq__inner">
-        <p class="seb-faq__eyebrow">Dudas habituales</p>
-        <h2 id="seb-faq-title" class="seb-faq__title">FAQ</h2>
+        <h2 id="seb-faq-title" class="seb-faq__title">Preguntas frecuentes</h2>
         <div class="seb-faq__list">
           <details>
             <summary>¿Qué incluye la asesoría personalizada?</summary>
@@ -317,6 +324,21 @@
       </div>
     </section>
   </main>
+
+  <div id="seb-calendly-hotmart-modal" class="seb-flow-modal" aria-hidden="true">
+    <div class="seb-flow-modal__backdrop" data-seb-flow-modal-close tabindex="-1"></div>
+    <div
+      class="seb-flow-modal__dialog"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="seb-flow-modal-title"
+      tabindex="-1"
+    >
+      <button type="button" class="seb-flow-modal__close" data-seb-flow-modal-close aria-label="Cerrar ventana">×</button>
+      <h2 id="seb-flow-modal-title" class="seb-flow-modal__title">Paso 1: elige día y hora</h2>
+      <div id="seb-calendly-inline-host" class="seb-flow-modal__calendly-host"></div>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
