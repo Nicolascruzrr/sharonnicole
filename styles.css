@@ -668,7 +668,7 @@ body.nav-drawer-open .nav-drawer {
   display: none;
 }
 
-@media (min-width: 769px) and (max-width: 1199px) {
+@media (min-width: 640px) and (max-width: 1199px) {
   .hero-content .hero-sub br.hero-sub__br-mid {
     display: inline;
   }
@@ -1345,7 +1345,7 @@ html.ua-chrome .hero-content .hero-sub {
 .cursos-blobs__heading {
   /* Misma familia que el párrafo .quote (“Tu bebé no duerme mal…”): body / Manrope */
   font-family: "Manrope", sans-serif;
-  font-size: clamp(0.82rem, 2.35vw, 1.75rem);
+  font-size: clamp(1rem, 2.9vw, 2.05rem);
   font-weight: 700;
   line-height: 1.22;
   color: var(--ink);
@@ -2431,11 +2431,20 @@ section.mama-florece {
   }
 }
 
-/*
- * Tablet / portátil estrecho (769–1199px): hero con img/background hero ipad.png
- * (sin «Foto Principal» encima). ≥1200 escritorio táctil grande: mismo PNG vía bloque anterior.
- */
-@media (min-width: 769px) and (max-width: 1199px) {
+@media (max-width: 960px) and (min-width: 768px) {
+  .sharon-presentacion .split {
+    grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+    gap: clamp(1.25rem, 3vw, 2rem);
+    align-items: start;
+  }
+
+  .sharon-presentacion .frame-card {
+    align-self: start;
+  }
+}
+
+/* Tablet / ancho medio (640–1199px): mismo composite que iPad — la familia no “cae” al pie como en el PNG móvil */
+@media (min-width: 640px) and (max-width: 1199px) {
   html {
     background-image: none;
     background-color: #fdf6f4;
@@ -2447,9 +2456,9 @@ section.mama-florece {
     background-color: #fdf6f4;
     background-image: url("img/background hero ipad.png");
     background-repeat: no-repeat;
-    background-position:
-      right bottom;
+    background-position: right bottom;
     background-size: cover;
+    background-attachment: scroll;
   }
 
   .hero-visual {
@@ -2458,10 +2467,11 @@ section.mama-florece {
 }
 
 /*
- * ≤768px: «fondo celular» como background + fixed al viewport (Chrome/Firefox táctil suelen respetarlo).
- * Ocultamos el <picture> para no duplicar capa. Safari iOS a veces trata fixed como scroll (comportamiento previo).
+ * Teléfonos ≤639px: fondo celular.
+ * NO usar background-attachment: fixed en móvil: Safari iOS y Chrome Android crean un viewport
+ * “fantasma” y el fondo salta con la barra de URL o al hacer scroll (en iPad/tablet el treat suele ser distinto).
  */
-@media (max-width: 768px) {
+@media (max-width: 639px) {
   .hero {
     min-height: 100vh;
     min-height: 100dvh;
@@ -2470,18 +2480,12 @@ section.mama-florece {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 78% bottom;
-    background-attachment: fixed;
+    background-attachment: scroll;
     -webkit-tap-highlight-color: transparent;
   }
 
   .hero-visual {
     display: none !important;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .hero {
-      background-attachment: scroll;
-    }
   }
 }
 
