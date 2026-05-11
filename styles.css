@@ -1609,6 +1609,26 @@ section.mama-florece {
   isolation: isolate;
   overflow: hidden;
   padding-block: clamp(5.75rem, 14vw, 11.5rem);
+  /* Como antes: rosado/salvia (.offer) + velo crema vertical + PNG (abajo → arriba en capas) */
+  background-color: #fdf6f4;
+  background-image:
+    linear-gradient(
+      145deg,
+      rgba(247, 180, 123, 0.18),
+      rgba(186, 167, 234, 0.15),
+      rgba(184, 221, 195, 0.15)
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255, 253, 246, 0.82) 0%,
+      rgba(253, 246, 244, 0.78) 45%,
+      rgba(253, 246, 244, 0.85) 100%
+    ),
+    url("img/background socials.png");
+  background-repeat: no-repeat;
+  background-position: center, center, center;
+  background-size: cover, cover, cover;
+  background-attachment: scroll;
 }
 
 .social-follow__blobs {
@@ -1858,6 +1878,66 @@ section.mama-florece {
 .social-ig-hero--photo:hover .social-ig-hero__img {
   filter: none;
   transform: none;
+}
+
+/* Tarjetas IG/TikTok con el PNG panorámico (misma textura que el fondo de la sección) */
+.social-ig-hero--socials-art.social-ig-hero--photo .social-ig-hero__img {
+  object-fit: cover;
+  object-position: 72% center;
+  filter: none;
+}
+
+.social-ig-hero--socials-art.social-ig-hero--photo:hover .social-ig-hero__img {
+  filter: none;
+}
+
+/* Texto en color vivo (rosa/coral), sin gris apagado */
+.social-ig-hero--socials-art {
+  color: var(--ink);
+}
+
+.social-ig-hero--socials-art.social-ig-hero--photo {
+  background-color: transparent;
+}
+
+.social-ig-hero--socials-art .social-ig-hero__headline strong {
+  color: #ea707f;
+  font-weight: 800;
+}
+
+.social-ig-hero--socials-art .social-ig-hero__gradient {
+  opacity: 0 !important;
+  background: transparent none !important;
+}
+
+.social-ig-hero--socials-art.social-ig-hero--photo:hover .social-ig-hero__gradient {
+  opacity: 0 !important;
+}
+
+.social-ig-hero--socials-art .social-ig-hero__bar {
+  background: rgba(234, 112, 127, 0.55);
+}
+
+.social-ig-hero--socials-art .social-ig-hero__headline,
+.social-ig-hero--socials-art .social-ig-hero__desc,
+.social-ig-hero--socials-art .social-ig-hero__link {
+  text-shadow: none;
+}
+
+.social-ig-hero--socials-art .social-ig-hero__handle {
+  color: #c43d67;
+  font-weight: 700;
+  opacity: 1;
+}
+
+.social-ig-hero--socials-art .social-ig-hero__desc {
+  color: var(--ink);
+  opacity: 1;
+}
+
+.social-ig-hero--socials-art .social-ig-hero__link {
+  color: #ea707f;
+  font-weight: 800;
 }
 
 .social-ig-hero__gradient {
