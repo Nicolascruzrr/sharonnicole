@@ -19,7 +19,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css?v=193">
-  <link rel="stylesheet" href="curso-soy-ese-bebe.css?v=32">
+  <link rel="stylesheet" href="curso-soy-ese-bebe.css?v=34">
 </head>
 <body class="seb-page seb-page--sueno-desde-cero">
   <header class="topbar">
@@ -160,8 +160,8 @@
         <aside class="seb-sidebar" aria-label="Inversión y acceso">
           <div class="seb-price">
             <header class="seb-price__head">
-              <p class="seb-price__label">Acceso completo</p>
-              <p class="seb-price__amount">$47 USD</p>
+              <p class="seb-price__label">Tres opciones</p>
+              <p class="seb-price__amount">Desde&nbsp;$17&nbsp;USD</p>
               <p class="seb-price__note">Pago único</p>
             </header>
             <div class="seb-price__body">
@@ -188,10 +188,15 @@
                 </li>
               </ul>
               <div class="seb-price__actions">
-                <a class="seb-btn seb-btn--pink seb-btn--block" href="https://pay.hotmart.com/A105765475E" target="_blank" rel="noopener noreferrer">Quiero inscribirme</a>
+                <button
+                  type="button"
+                  class="seb-btn seb-btn--pink seb-btn--block"
+                  data-seb-plans-open
+                  aria-haspopup="dialog"
+                >Quiero inscribirme</button>
                 <a class="seb-btn seb-btn--ghost seb-btn--block" href="index.html#cursos-asesorias">Ver otros cursos</a>
               </div>
-              <p class="seb-price__fine">Sin métodos de llanto controlado. Respetuoso con la lactancia 🌿</p>
+              <p class="seb-price__fine">Sin métodos de llanto controlado. Respetuoso con la lactancia</p>
             </div>
           </div>
         </aside>
@@ -256,6 +261,99 @@
     </section>
 
   </main>
+
+  <script type="application/json" id="seb-plans-config">
+    {
+      "title": "Elige cómo quieres empezar",
+      "subtitle": "Curso Sueño desde Cero",
+      "footnote": "Pago seguro vía Hotmart · Sin métodos de llanto controlado",
+      "plans": [
+        {
+          "name": "Solo e-book",
+          "tagline": "Guía PDF descargable",
+          "price": "17",
+          "billing": "USD · pago único",
+          "accent": "pink",
+          "features": [
+            "Las bases sobre el sueño de los bebés",
+            "Guía práctica paso a paso",
+            "Descarga y consulta cuando quieras"
+          ],
+          "cta": "Comprar e-book",
+          "checkoutUrl": "https://pay.hotmart.com/B105910840D",
+          "buttonStyle": "ghost"
+        },
+        {
+          "name": "E-book + video",
+          "tagline": "Guía PDF y lecciones en video",
+          "price": "37",
+          "billing": "USD · pago único",
+          "accent": "yellow",
+          "featured": true,
+          "badge": "Más elegido",
+          "features": [
+            "Todo lo del plan Solo e-book",
+            "Lecciones en video por etapas",
+            "Acceso al contenido por 6 meses"
+          ],
+          "cta": "Comprar e-book + video",
+          "checkoutUrl": "https://pay.hotmart.com/A105765475E",
+          "buttonStyle": "primary"
+        },
+        {
+          "name": "Curso + asesoría",
+          "tagline": "E-book, video y videollamada 1:1",
+          "price": "70",
+          "billing": "USD · pago único",
+          "accent": "green",
+          "features": [
+            "Todo lo del plan E-book + video",
+            "Asesoría personalizada de 60 minutos",
+            "Plan adaptado a tu bebé y tu familia"
+          ],
+          "cta": "Elegir día y pagar",
+          "checkoutUrl": "https://pay.hotmart.com/P105911452I",
+          "calendlyUrl": "https://calendly.com/sharonnicolett/30min",
+          "checkoutFlow": "calendly-hotmart",
+          "buttonStyle": "primary"
+        }
+      ]
+    }
+  </script>
+
+  <div id="seb-plans-modal" class="seb-plans-modal" aria-hidden="true">
+    <div class="seb-plans-modal__backdrop" data-seb-plans-close tabindex="-1"></div>
+    <div
+      class="seb-plans-modal__dialog"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="seb-plans-modal-title"
+      tabindex="-1"
+    >
+      <button type="button" class="seb-plans-modal__close" data-seb-plans-close aria-label="Cerrar">×</button>
+      <header class="seb-plans-modal__header">
+        <p class="seb-plans-modal__subtitle" id="seb-plans-modal-subtitle"></p>
+        <h2 id="seb-plans-modal-title" class="seb-plans-modal__title"></h2>
+      </header>
+      <div class="seb-plans-modal__grid" id="seb-plans-modal-grid" role="list"></div>
+      <p class="seb-plans-modal__footnote" id="seb-plans-modal-footnote"></p>
+    </div>
+  </div>
+
+  <div id="seb-calendly-hotmart-modal" class="seb-flow-modal" aria-hidden="true">
+    <div class="seb-flow-modal__backdrop" data-seb-flow-modal-close tabindex="-1"></div>
+    <div
+      class="seb-flow-modal__dialog"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="seb-flow-modal-title"
+      tabindex="-1"
+    >
+      <button type="button" class="seb-flow-modal__close" data-seb-flow-modal-close aria-label="Cerrar ventana">×</button>
+      <h2 id="seb-flow-modal-title" class="seb-flow-modal__title">Paso 1: elige día y hora</h2>
+      <div id="seb-calendly-inline-host" class="seb-flow-modal__calendly-host"></div>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>

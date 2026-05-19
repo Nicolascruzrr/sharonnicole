@@ -137,9 +137,9 @@ if (cbcTestimonials) {
   const host = document.getElementById("seb-calendly-inline-host");
   if (!modal || !host) return;
 
-  const openBtns = document.querySelectorAll("[data-seb-calendly-flow-open]");
   const closeEls = modal.querySelectorAll("[data-seb-flow-modal-close]");
   const dialog = modal.querySelector(".seb-flow-modal__dialog");
+  const plansModal = document.getElementById("seb-plans-modal");
 
   /** @type {string} */
   let activeCalendlyUrl = "https://calendly.com/sharonnicolett/30min";
@@ -263,8 +263,20 @@ if (cbcTestimonials) {
     lastFocus = null;
   }
 
-  openBtns.forEach((btn) => {
-    btn.addEventListener("click", () => openModal(btn));
+  function closePlansModalIfOpen() {
+    if (!plansModal || !plansModal.classList.contains("is-open")) return;
+    plansModal.classList.remove("is-open");
+    plansModal.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("seb-plans-modal-open");
+    document.documentElement.classList.remove("seb-plans-modal-open");
+  }
+
+  document.addEventListener("click", (e) => {
+    const btn = e.target.closest("[data-seb-calendly-flow-open]");
+    if (!btn) return;
+    e.preventDefault();
+    closePlansModalIfOpen();
+    openModal(btn);
   });
 
   closeEls.forEach((el) => {
@@ -294,7 +306,162 @@ if (cbcTestimonials) {
     if (!isCalendlyEvent(e)) return;
     if (e.data.event === "calendly.date_and_time_selected" && !redirectedToHotmart) {
       redirectedToHotmart = true;
-      window.location.assign(activeHotmartUrl);
+      window.open(activeHotmartUrl, "_blank", "noopener,noreferrer");
     }
   });
+})();
+
+/* Cursos: primero pop-up de planes, después Hotmart al elegir uno */
+(function initCoursePlansModal() {
+  function boot() {
+    const configEl = document.getElementById("seb-plans-config");
+    const modal = document.getElementById("seb-plans-modal");
+    if (!configEl || !modal) return;
+
+    /** @type {{ title: string; subtitle?: string; footnote?: string; plans: Array<Record<string, unknown>> }} */
+    let config;
+    try {
+      config = JSON.parse(configEl.textContent || "{}");
+    } catch {
+      return;
+    }
+
+    const openBtns = document.querySelectorAll("[data-seb-plans-open]");
+    const closeEls = modal.querySelectorAll("[data-seb-plans-close]");
+    const dialog = modal.querySelector(".seb-plans-modal__dialog");
+    const titleEl = document.getElementById("seb-plans-modal-title");
+    const subtitleEl = document.getElementById("seb-plans-modal-subtitle");
+    const footnoteEl = document.getElementById("seb-plans-modal-footnote");
+    const gridEl = document.getElementById("seb-plans-modal-grid");
+
+    if (!gridEl || !titleEl || !openBtns.length) return;
+
+    /** @type {HTMLElement | null} */
+    let lastFocus = null;
+
+  function escapeHtml(str) {
+    const d = document.createElement("div");
+    d.textContent = str;
+    return d.innerHTML;
+  }
+
+  function renderPlans() {
+    titleEl.textContent = config.title || "Elige tu plan";
+    if (subtitleEl) {
+      if (config.subtitle) {
+        subtitleEl.textContent = config.subtitle;
+        subtitleEl.hidden = false;
+      } else {
+        subtitleEl.hidden = true;
+      }
+    }
+    if (footnoteEl) {
+      footnoteEl.textContent = config.footnote || "";
+      footnoteEl.hidden = !config.footnote;
+    }
+
+    const plans = Array.isArray(config.plans) ? config.plans : [];
+    gridEl.innerHTML = plans
+      .map((plan) => {
+        const accent = ["pink", "yellow", "green"].includes(plan.accent)
+          ? plan.accent
+          : "pink";
+        const featured = Boolean(plan.featured);
+        const buttonStyle = plan.buttonStyle === "ghost" ? "ghost" : "primary";
+        const features = Array.isArray(plan.features) ? plan.features : [];
+        const badge = plan.badge
+          ? `<span class="seb-plan-card__badge">${escapeHtml(String(plan.badge))}</span>`
+          : "";
+        const fine = plan.fine
+          ? `<p class="seb-plan-card__fine">${escapeHtml(String(plan.fine))}</p>`
+          : "";
+        const featuresHtml = features
+          .map(
+            (f) =>
+              `<li><span class="seb-plan-card__check" aria-hidden="true">✓</span><span>${escapeHtml(String(f))}</span></li>`
+          )
+          .join("");
+
+        const usesCalendlyFlow =
+          plan.checkoutFlow === "calendly-hotmart" &&
+          plan.calendlyUrl &&
+          plan.checkoutUrl;
+        const ctaHtml = usesCalendlyFlow
+          ? `<button type="button" class="seb-plan-card__cta seb-plan-card__cta--${buttonStyle}" data-seb-calendly-flow-open data-calendly-url="${escapeHtml(String(plan.calendlyUrl))}" data-hotmart-url="${escapeHtml(String(plan.checkoutUrl))}" aria-haspopup="dialog">${escapeHtml(String(plan.cta || "Comprar"))}</button>`
+          : `<a class="seb-plan-card__cta seb-plan-card__cta--${buttonStyle}" href="${escapeHtml(String(plan.checkoutUrl || "#"))}" target="_blank" rel="noopener noreferrer" data-seb-plan-checkout>${escapeHtml(String(plan.cta || "Comprar"))}</a>`;
+
+        return `
+          <article class="seb-plan-card seb-plan-card--${accent}${featured ? " seb-plan-card--featured" : ""}" role="listitem">
+            ${badge}
+            <span class="seb-plan-card__icon" aria-hidden="true"></span>
+            <h3 class="seb-plan-card__name">${escapeHtml(String(plan.name || ""))}</h3>
+            <p class="seb-plan-card__tagline">${escapeHtml(String(plan.tagline || ""))}</p>
+            <div class="seb-plan-card__price-row">
+              <span class="seb-plan-card__price">${escapeHtml(String(plan.price || ""))}</span>
+              <span class="seb-plan-card__billing">${escapeHtml(String(plan.billing || ""))}</span>
+            </div>
+            ${ctaHtml}
+            ${fine}
+            <hr class="seb-plan-card__divider" aria-hidden="true">
+            <ul class="seb-plan-card__features">${featuresHtml}</ul>
+          </article>
+        `;
+      })
+      .join("");
+
+    gridEl.querySelectorAll("[data-seb-plan-checkout]").forEach((link) => {
+      link.addEventListener("click", () => {
+        closeModal();
+      });
+    });
+  }
+
+  function openModal(e) {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    lastFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    renderPlans();
+    modal.classList.add("is-open");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.classList.add("seb-plans-modal-open");
+    document.documentElement.classList.add("seb-plans-modal-open");
+    if (dialog && typeof dialog.focus === "function") {
+      window.setTimeout(() => dialog.focus(), 40);
+    }
+  }
+
+  function closeModal() {
+    modal.classList.remove("is-open");
+    modal.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("seb-plans-modal-open");
+    document.documentElement.classList.remove("seb-plans-modal-open");
+    if (lastFocus && typeof lastFocus.focus === "function") lastFocus.focus();
+    lastFocus = null;
+  }
+
+  openBtns.forEach((btn) => {
+    if (btn instanceof HTMLAnchorElement) {
+      btn.setAttribute("href", "#");
+      btn.setAttribute("role", "button");
+    }
+    btn.addEventListener("click", openModal);
+  });
+  closeEls.forEach((el) => el.addEventListener("click", closeModal));
+
+  window.addEventListener(
+    "keydown",
+    (e) => {
+      if (e.key === "Escape" && modal.classList.contains("is-open")) closeModal();
+    },
+    true
+  );
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", boot);
+  } else {
+    boot();
+  }
 })();
