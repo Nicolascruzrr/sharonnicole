@@ -306,7 +306,7 @@ if (cbcTestimonials) {
     if (!isCalendlyEvent(e)) return;
     if (e.data.event === "calendly.date_and_time_selected" && !redirectedToHotmart) {
       redirectedToHotmart = true;
-      window.open(activeHotmartUrl, "_blank", "noopener,noreferrer");
+      window.location.assign(activeHotmartUrl);
     }
   });
 })();
