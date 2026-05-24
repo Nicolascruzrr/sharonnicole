@@ -1288,9 +1288,33 @@ body.seb-flow-modal-open {
   font-family: "Lora", Georgia, serif;
   font-size: clamp(1.2rem, 2.8vw, 1.5rem);
   font-weight: 600;
-  margin: 0 2.25rem 0.75rem 0;
+  margin: 0 2.25rem 0.5rem 0;
   color: var(--text);
   flex-shrink: 0;
+}
+
+.seb-flow-modal__lede {
+  margin: 0 2.25rem 0.75rem 0;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: var(--muted);
+  flex-shrink: 0;
+}
+
+.seb-flow-modal__success {
+  margin: 0;
+  padding: 1.25rem 1rem;
+  border-radius: 12px;
+  background: var(--green-light);
+  border: 1px solid rgba(76, 175, 130, 0.35);
+  color: var(--text);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  text-align: center;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .seb-flow-modal__calendly-host {

@@ -131,7 +131,7 @@ if (cbcTestimonials) {
   cbcObserver.observe(cbcTestimonials);
 }
 
-/* Agenda (3 modalidades): elegir día/hora en Calendly → Hotmart; tras pagar, redirigir a Calendly (configurar en Hotmart) para confirmar reserva */
+/* Asesorías: Calendly (hora + datos + confirmar) → Hotmart (pago) */
 (function initAgendaCalendlyThenHotmart() {
   const modal = document.getElementById("seb-calendly-hotmart-modal");
   const host = document.getElementById("seb-calendly-inline-host");
@@ -150,6 +150,23 @@ if (cbcTestimonials) {
     const d = document.createElement("div");
     d.textContent = str;
     return d.innerHTML;
+  }
+
+  function setFlowStep(step) {
+    const title = document.getElementById("seb-flow-modal-title");
+    const lede = document.getElementById("seb-flow-modal-lede");
+    if (step === "pay") {
+      if (title) title.textContent = "¡Cita agendada! Ahora completa tu pago";
+      if (lede) {
+        lede.textContent = "Te estamos llevando a Hotmart para finalizar la compra…";
+      }
+    } else {
+      if (title) title.textContent = "Agenda tu asesoría";
+      if (lede) {
+        lede.textContent =
+          "1) Elige día y hora · 2) Completa tus datos · 3) Pulsa «Schedule Event» y te llevaremos al pago en Hotmart.";
+      }
+    }
   }
 
   /** Evita doble redirección si Calendly repite el evento */
@@ -209,13 +226,10 @@ if (cbcTestimonials) {
   function resetFlow() {
     redirectedToHotmart = false;
     host.innerHTML = "";
-    const title = document.getElementById("seb-flow-modal-title");
-    if (title) title.textContent = "Paso 1: elige día y hora";
+    setFlowStep();
   }
 
-  /**
-   * @param {HTMLElement} [trigger] Botón con data-calendly-url, data-hotmart-url
-   */
+  /** @param {HTMLElement} [trigger] Botón con data-calendly-url, data-hotmart-url */
   function openModal(trigger) {
     if (trigger && trigger.dataset) {
       if (trigger.dataset.calendlyUrl) activeCalendlyUrl = trigger.dataset.calendlyUrl.trim();
@@ -304,9 +318,15 @@ if (cbcTestimonials) {
   window.addEventListener("message", (e) => {
     if (!modal.classList.contains("is-open")) return;
     if (!isCalendlyEvent(e)) return;
-    if (e.data.event === "calendly.date_and_time_selected" && !redirectedToHotmart) {
+
+    if (e.data.event === "calendly.event_scheduled" && !redirectedToHotmart) {
       redirectedToHotmart = true;
-      window.location.assign(activeHotmartUrl);
+      setFlowStep("pay");
+      host.innerHTML =
+        '<p class="seb-flow-modal__success">Tu cita quedó registrada. En un momento irás a Hotmart para completar el pago.</p>';
+      window.setTimeout(() => {
+        window.location.assign(activeHotmartUrl);
+      }, 600);
     }
   });
 })();
