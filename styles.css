@@ -1501,12 +1501,220 @@ html.ua-chrome .hero-content .hero-sub {
   }
 }
 
+/* ——— Recursos: plantillas imprimibles ——— */
+.recursos.section {
+  background-color: #fdf6f4;
+  background-image: url("img/background%20recursos.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding-block: clamp(3.5rem, 7vw, 5.5rem);
+}
+
+.recursos__inner {
+  width: min(1176px, 92%);
+}
+
+.recursos__head {
+  margin-bottom: clamp(1.75rem, 4vw, 2.6rem);
+}
+
+.recursos__head h2 {
+  margin: 0;
+  max-width: 24ch;
+  font-family: "Schoolbell", cursive;
+  font-size: clamp(2rem, 4.2vw, 2.9rem);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+  color: #3e2f2b;
+  text-wrap: balance;
+}
+
+.recursos__head p {
+  margin: 0.8rem 0 0;
+  max-width: 46rem;
+  color: #5c514d;
+  font-size: 1.05rem;
+  line-height: 1.55;
+}
+
+.recursos__grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: clamp(0.75rem, 1.5vw, 1rem);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.recursos__item--featured {
+  grid-column: 1 / -1;
+}
+
+.recurso {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  padding: 1.15rem 1.35rem 1.15rem 1.15rem;
+  text-decoration: none;
+  color: var(--ink);
+  background: #fffdf8;
+  border-radius: 16px;
+  box-shadow: 0 10px 26px rgba(62, 47, 43, 0.1);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.recurso:focus-visible {
+  outline: 2px solid #a76579;
+  outline-offset: 3px;
+}
+
+.recurso--featured {
+  padding: clamp(1.35rem, 3vw, 1.85rem) clamp(1.35rem, 3vw, 2rem);
+  background:
+    linear-gradient(135deg, rgba(234, 112, 127, 0.14), rgba(186, 167, 234, 0.12)),
+    #fffdf8;
+  border: 1.5px solid rgba(167, 101, 121, 0.22);
+  box-shadow: 0 14px 34px rgba(62, 47, 43, 0.12);
+}
+
+.recurso--featured .recurso__name {
+  font-size: clamp(1.75rem, 3.2vw, 2.25rem);
+  color: #8d4d62;
+}
+
+.recurso--featured .recurso__text {
+  max-width: 42rem;
+  font-size: 1.05rem;
+}
+
+.recurso__cap {
+  position: absolute;
+  top: 1.05rem;
+  right: 1rem;
+  width: 1.45rem;
+  height: 1.2rem;
+  border-radius: 58% 42% 62% 38% / 46% 54% 42% 58%;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.28);
+}
+
+.recurso--coral .recurso__cap { background: #e59e60; }
+.recurso--limon .recurso__cap { background: #c4bc55; }
+.recurso--salvia .recurso__cap { background: #7b8c72; }
+.recurso--lila .recurso__cap { background: #9b8cb3; }
+.recurso--rosa .recurso__cap { background: #e7a0b4; }
+
+.recurso__name {
+  display: block;
+  margin: 0.35rem 0 0.45rem;
+  padding-right: 1.4rem;
+  font-family: "Schoolbell", cursive;
+  font-size: clamp(1.2rem, 1.7vw, 1.45rem);
+  font-weight: 400;
+  line-height: 1.2;
+  color: #3e2f2b;
+}
+
+.recurso__text {
+  display: block;
+  flex: 1;
+  margin: 0 0 1.1rem;
+  color: #5c514d;
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.recurso__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: auto;
+  font-family: "Manrope", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #8d4d62;
+}
+
+.recurso__cta::after {
+  content: "";
+  width: 0.45rem;
+  height: 0.45rem;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(-45deg);
+  margin-top: -1px;
+}
+
+@media (hover: hover) {
+  .recurso:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 32px rgba(62, 47, 43, 0.14);
+  }
+
+  .recurso--featured:hover {
+    box-shadow: 0 18px 38px rgba(62, 47, 43, 0.16);
+  }
+
+  .recurso:hover .recurso__cta {
+    color: #6f354c;
+  }
+}
+
+@media (max-width: 900px) {
+  .recursos__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .recursos__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .recurso {
+    transition: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) and (hover: hover) {
+  .recurso:hover {
+    transform: none;
+  }
+}
+
 /* Por encima de testimonios cuando el margin negativo superpone capas */
 section.mama-florece {
   position: relative;
   z-index: 2;
   text-align: left;
   background-color: #fdf6f4;
+  overflow: hidden;
+}
+
+/* Un solo asterisco de Background pr.png (esquina inferior derecha) */
+section.mama-florece::before {
+  content: "";
+  position: absolute;
+  top: auto;
+  bottom: clamp(0.75rem, 2vw, 1.75rem);
+  right: clamp(1rem, 3vw, 2.5rem);
+  width: min(24vw, 190px);
+  height: min(24vw, 190px);
+  background-image: url("img/asterisco-pr.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.mama-florece > .container {
+  position: relative;
+  z-index: 1;
 }
 
 /* Mamá-florece — copy izquierda, listas derecha (tipo split) */
@@ -3537,4 +3745,43 @@ section.realidad-section.section {
 
 .curso-detalle__cta .btn {
   margin-top: 0.25rem;
+}
+
+/* Páginas de detalle de plantillas (Recursos) */
+.plantilla-page {
+  background-color: #fdf6f4;
+  background-image: url("img/background%20recursos.png");
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+  min-height: 100%;
+}
+
+.plantilla-detalle__title {
+  font-family: "Schoolbell", cursive;
+  font-weight: 400;
+  font-size: clamp(2.2rem, 5.5vw, 3.2rem);
+  line-height: 1.1;
+  color: #3e2f2b;
+}
+
+.plantilla-page--featured .curso-detalle__badge {
+  background: rgba(234, 112, 127, 0.22);
+  color: #8d4d62;
+}
+
+.plantilla-page--coral .curso-detalle__badge {
+  background: rgba(229, 158, 96, 0.35);
+}
+
+.plantilla-page--limon .curso-detalle__badge {
+  background: rgba(196, 188, 85, 0.4);
+}
+
+.plantilla-page--salvia .curso-detalle__badge {
+  background: rgba(123, 140, 114, 0.3);
+}
+
+.plantilla-page--lila .curso-detalle__badge {
+  background: rgba(155, 140, 179, 0.35);
 }

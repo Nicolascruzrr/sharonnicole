@@ -193,6 +193,14 @@ body.seb-page {
   }
 }
 
+.seb-hero__grid--solo {
+  grid-template-columns: 1fr;
+}
+
+.seb-hero__grid--solo .seb-hero__left {
+  max-width: 720px;
+}
+
 .seb-hero__left {
   padding-top: 12px;
   padding-bottom: 48px;
@@ -613,6 +621,31 @@ body.seb-page .seb-prose article.seb-section--green .seb-achieve-list li {
   color: var(--muted);
 }
 
+.seb-hero__lede + .seb-hero__lede {
+  margin-top: -12px;
+}
+
+.seb-learn-item p strong {
+  display: block;
+  margin-bottom: 2px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.seb-about-lead strong {
+  font-family: "Lora", Georgia, serif;
+  font-size: 1.1rem;
+  color: var(--text);
+}
+
+.seb-fit .seb-strip {
+  margin-top: 18px;
+}
+
+.seb-fit__btn {
+  margin-top: 14px;
+}
+
 /* —— Price card —— */
 .seb-sidebar {
   position: sticky;
@@ -906,14 +939,38 @@ body.seb-page--sueno-desde-cero .seb-hero__h1 .seb-hero__h1-curso,
 body.seb-page--sueno-desde-cero .seb-hero__h1 .seb-hero__h1-olive,
 body.seb-page--acompanamiento .seb-hero__h1,
 body.seb-page--acompanamiento .seb-hero__h1 .seb-hero__h1-curso,
-body.seb-page--acompanamiento .seb-hero__h1 .seb-hero__h1-olive {
+body.seb-page--acompanamiento .seb-hero__h1 .seb-hero__h1-olive,
+body.seb-page--plantilla-reset .seb-hero__h1,
+body.seb-page--plantilla-reset .seb-hero__h1 .seb-hero__h1-curso,
+body.seb-page--plantilla-reset .seb-hero__h1 .seb-hero__h1-olive,
+body.seb-page--plantilla-siestas .seb-hero__h1,
+body.seb-page--plantilla-siestas .seb-hero__h1 .seb-hero__h1-curso,
+body.seb-page--plantilla-siestas .seb-hero__h1 .seb-hero__h1-olive,
+body.seb-page--plantilla-despertares .seb-hero__h1,
+body.seb-page--plantilla-despertares .seb-hero__h1 .seb-hero__h1-curso,
+body.seb-page--plantilla-despertares .seb-hero__h1 .seb-hero__h1-olive,
+body.seb-page--plantilla-madrugadores .seb-hero__h1,
+body.seb-page--plantilla-madrugadores .seb-hero__h1 .seb-hero__h1-curso,
+body.seb-page--plantilla-madrugadores .seb-hero__h1 .seb-hero__h1-olive,
+body.seb-page--plantilla-rutina .seb-hero__h1,
+body.seb-page--plantilla-rutina .seb-hero__h1 .seb-hero__h1-curso,
+body.seb-page--plantilla-rutina .seb-hero__h1 .seb-hero__h1-olive,
+body.seb-page--plantilla-hora-dormir .seb-hero__h1,
+body.seb-page--plantilla-hora-dormir .seb-hero__h1 .seb-hero__h1-curso,
+body.seb-page--plantilla-hora-dormir .seb-hero__h1 .seb-hero__h1-olive {
   font-family: "Schoolbell", cursive;
   font-weight: 400;
 }
 
 body.seb-page--noches-completas .seb-prose h2,
 body.seb-page--sueno-desde-cero .seb-prose h2,
-body.seb-page--acompanamiento .seb-prose h2 {
+body.seb-page--acompanamiento .seb-prose h2,
+body.seb-page--plantilla-reset .seb-prose h2,
+body.seb-page--plantilla-siestas .seb-prose h2,
+body.seb-page--plantilla-despertares .seb-prose h2,
+body.seb-page--plantilla-madrugadores .seb-prose h2,
+body.seb-page--plantilla-rutina .seb-prose h2,
+body.seb-page--plantilla-hora-dormir .seb-prose h2 {
   font-family: "Schoolbell", cursive;
   font-weight: 400;
 }
