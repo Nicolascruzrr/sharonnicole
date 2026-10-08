@@ -25,7 +25,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Chiron+Hei+HK:ital,wght@0,200..900;1,200..900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Schoolbell&family=Square+Peg&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=279">
+  <link rel="stylesheet" href="styles.css?v=292">
 </head>
 <body>
   <header class="topbar">
@@ -329,6 +329,77 @@
             </a>
           </li>
         </ul>
+
+        <div class="kits" id="kits" aria-labelledby="kits-titulo">
+          <div class="kits__head">
+            <p class="kits__eyebrow">¿Te está pasando más de una cosa?</p>
+            <h3 id="kits-titulo" class="kits__title">Elige <em>la opción que mejor se adapte a tu familia</em></h3>
+            <p class="kits__lede">No tienes que elegir un solo SOS. Aquí encuentras todo lo que necesitas para entender qué está pasando y volver a darle estructura al sueño de tu bebé.</p>
+            <span class="kits__squiggle" aria-hidden="true"></span>
+          </div>
+
+          <div class="kits__grid">
+            <article class="kit kit--sos">
+              <div class="kit__main">
+                <div class="kit__copy">
+                  <h4 class="kit__name">Kit SOS</h4>
+                  <p class="kit__sub">Todos los SOS. Una biblioteca para cada etapa.</p>
+                  <p class="kit__text">Las siestas, las noches, los despertares y las madrugadas se afectan entre sí. Llévate los 5 SOS y ten a la mano las herramientas para entender qué está pasando y qué ajustar en cada momento, sin aplicar soluciones al azar.</p>
+                </div>
+                <div class="kit__visual" aria-hidden="true">
+                  <div class="kit__fan">
+                    <img class="kit__cover" src="img/kits/siestas.webp" alt="" width="600" height="750" loading="lazy" decoding="async">
+                    <img class="kit__cover" src="img/kits/despertares.webp" alt="" width="600" height="750" loading="lazy" decoding="async">
+                    <img class="kit__cover" src="img/kits/hora-de-dormir.webp" alt="" width="600" height="750" loading="lazy" decoding="async">
+                    <img class="kit__cover" src="img/kits/madrugadores.webp" alt="" width="600" height="750" loading="lazy" decoding="async">
+                    <img class="kit__cover" src="img/kits/rutina-de-dia.webp" alt="" width="600" height="750" loading="lazy" decoding="async">
+                  </div>
+                  <ul class="kit__legend">
+                    <li><i style="background:#f3a8b8"></i>Siestas</li>
+                    <li><i style="background:#c9cf9b"></i>Despertares</li>
+                    <li><i style="background:#a9c6ea"></i>Hora de dormir</li>
+                    <li><i style="background:#f4a468"></i>Madrugadores</li>
+                    <li><i style="background:#f7d77a"></i>Rutina de día</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="kit__buy">
+                <p class="kit__price">US$29</p>
+                <a class="kit__btn kit__btn--sage" href="kit-sos/">Quiero los 5 SOS</a>
+              </div>
+              <p class="kit__note"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6.5C10.4 5.3 7.9 4.8 4 5v13c3.9-.2 6.4.3 8 1.5 1.6-1.2 4.1-1.7 8-1.5V5c-3.900-.2-6.400.3-8 1.500zM12 6.5v13"/></svg>Ideal si quieres tener soluciones concretas para los distintos retos del sueño.</p>
+            </article>
+
+            <article class="kit kit--completo">
+              <span class="kit__badge">La opción más completa</span>
+              <div class="kit__main">
+                <div class="kit__copy">
+                  <h4 class="kit__name">Kit Completo</h4>
+                  <p class="kit__sub">Todos los SOS + Reset del Sueño</p>
+                  <p class="kit__text">Si sientes que todo se desordenó —siestas, horarios, noches, despertares o madrugadas— esta es la opción más completa. Además de los 5 SOS, incluye el Reset del Sueño, un plan práctico para volver a darle estructura al sueño de tu bebé.</p>
+                </div>
+                <div class="kit__visual" aria-hidden="true">
+                  <div class="kit__combo">
+                    <div class="kit__stack">
+                      <img class="kit__cover" src="img/kits/siestas.webp" alt="" width="600" height="750" loading="lazy" decoding="async">
+                      <img class="kit__cover" src="img/kits/despertares.webp" alt="" width="600" height="750" loading="lazy" decoding="async">
+                      <img class="kit__cover" src="img/kits/hora-de-dormir.webp" alt="" width="600" height="750" loading="lazy" decoding="async">
+                      <img class="kit__cover" src="img/kits/madrugadores.webp" alt="" width="600" height="750" loading="lazy" decoding="async">
+                      <img class="kit__cover" src="img/kits/rutina-de-dia.webp" alt="" width="600" height="750" loading="lazy" decoding="async">
+                    </div>
+                    <span class="kit__plus">+</span>
+                    <img class="kit__cover kit__cover--reset" src="img/kits/reset.webp" alt="" width="600" height="750" loading="lazy" decoding="async">
+                  </div>
+                </div>
+              </div>
+              <div class="kit__buy">
+                <p class="kit__price kit__price--rose">US$39</p>
+                <a class="kit__btn kit__btn--rose" href="kit-completo/">Quiero el sistema completo</a>
+              </div>
+              <p class="kit__note"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1"/></svg>Ideal si no sabes por dónde empezar o necesitas reorganizar varias piezas del sueño a la vez.</p>
+            </article>
+          </div>
+        </div>
       </div>
     </section>
 

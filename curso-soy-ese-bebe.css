@@ -1759,3 +1759,326 @@ button.seb-plan-card__cta {
   color: var(--muted);
   line-height: 1.45;
 }
+
+
+/* ——— Landing Kit SOS ——— */
+body.seb-page--kit-sos .seb-hero__h1,
+body.seb-page--kit-sos .seb-hero__h1 .seb-hero__h1-curso,
+body.seb-page--kit-sos .seb-hero__h1 .seb-hero__h1-olive,
+body.seb-page--kit-sos .seb-prose h2 {
+  font-family: "Schoolbell", cursive;
+  font-weight: 400;
+}
+
+.kit-landing__bullets {
+  margin: 0 0 4px;
+  padding-left: 1.25rem;
+  list-style: disc;
+}
+
+.kit-landing__bullets li {
+  margin: 0;
+  padding: 18px 0 18px 4px;
+  border-bottom: 1px dashed var(--orange);
+  font-weight: 500;
+  text-align: justify;
+  text-wrap: pretty;
+}
+
+.kit-landing__bullets li:first-child {
+  padding-top: 0;
+}
+
+.kit-landing__bullets li:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.kit-landing__bullets li::marker {
+  color: var(--orange);
+}
+
+.kit-landing__bullets li strong {
+  display: block;
+  margin-bottom: 2px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.kit-landing__fine {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.kit-landing__fine--left {
+  margin-top: 10px;
+}
+
+/* ——— Landing Kit Completo ——— */
+.kit-landing__badge {
+  background: var(--yellow-light);
+  color: var(--yellow-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.72rem;
+}
+
+.kit-landing__eyebrow {
+  margin: 0 0 6px;
+  font-family: "Schoolbell", cursive;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  color: #8d4d62;
+}
+
+body.seb-page--kit-completo .seb-hero__right.kit-hero-art,
+body.seb-page--kit-sos .seb-hero__right.kit-hero-art {
+  position: relative;
+  min-height: 0;
+  width: 100%;
+  max-width: 480px;
+  margin-inline: auto;
+  aspect-ratio: 1 / 1;
+  align-self: center;
+}
+
+.kit-hero-art__cover {
+  position: absolute;
+  display: block;
+  width: 30%;
+  height: auto;
+  filter: drop-shadow(0 8px 10px rgba(42, 31, 28, 0.28)) drop-shadow(0 1px 1px rgba(42, 31, 28, 0.25));
+}
+
+.kit-hero-art__cover--1 { left: 0; top: 2%; transform: rotate(-7deg); z-index: 1; }
+.kit-hero-art__cover--2 { left: 17.5%; top: 0; transform: rotate(-3deg); z-index: 2; }
+.kit-hero-art__cover--3 { left: 35%; top: -2%; z-index: 3; }
+.kit-hero-art__cover--4 { left: 52.5%; top: 0; transform: rotate(3deg); z-index: 4; }
+.kit-hero-art__cover--5 { left: 70%; top: 2%; transform: rotate(7deg); z-index: 5; }
+body.seb-page--kit-sos .seb-hero__right.kit-hero-art.kit-hero-art--sos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px 16px;
+  margin-bottom: 32px;
+  max-width: 310px;
+  aspect-ratio: auto;
+  animation: none;
+}
+
+.kit-hero-art--sos .kit-hero-art__cover {
+  position: static;
+  width: 100%;
+  top: auto;
+  left: auto;
+  transform: none;
+}
+
+.kit-hero-art--sos .kit-hero-art__cover--5 {
+  grid-column: 1 / -1;
+  width: 50%;
+  justify-self: center;
+}
+.kit-hero-art__cover--reset {
+  left: 25%;
+  top: 33%;
+  width: 50%;
+  transform: rotate(2deg);
+  z-index: 10;
+  filter: drop-shadow(0 14px 16px rgba(42, 31, 28, 0.34)) drop-shadow(0 1px 1px rgba(42, 31, 28, 0.25));
+}
+
+.kit-landing__steps {
+  display: grid;
+  gap: 14px;
+  margin: 18px 0 22px;
+}
+
+.kit-landing__step {
+  padding: 18px 20px 6px;
+  border-radius: 16px;
+  border: 1px solid rgba(62, 47, 43, 0.08);
+}
+
+.kit-landing__step--pink { background: rgba(246, 173, 200, 0.2); }
+.kit-landing__step--green { background: rgba(184, 221, 195, 0.3); padding-bottom: 2px; }
+
+.kit-landing__step-kicker {
+  margin: 0 0 8px !important;
+  font-weight: 700;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #8d4d62;
+}
+
+.kit-landing__step--green .kit-landing__step-kicker { color: #3f7a55; }
+
+.kit-landing__plain-list {
+  list-style: none;
+  margin: 0 0 12px;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.kit-landing__plain-list li {
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.kit-landing__group-label {
+  margin: 0 0 10px !important;
+  font-weight: 700;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.kit-landing__products {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px 14px;
+}
+
+.kit-landing__product {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: center;
+}
+
+.kit-landing__product img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 4px;
+  filter: drop-shadow(0 6px 7px rgba(42, 31, 28, 0.26)) drop-shadow(0 1px 1px rgba(42, 31, 28, 0.2));
+}
+
+.kit-landing__product strong {
+  font-size: 0.92rem;
+  line-height: 1.25;
+  color: var(--text);
+}
+
+.kit-landing__product span {
+  font-size: 0.82rem;
+  line-height: 1.35;
+  color: var(--muted);
+}
+
+.kit-landing__plus {
+  margin: 14px 0 6px !important;
+  text-align: center !important;
+  font-size: 1.8rem;
+  line-height: 1;
+  color: #c0707f;
+}
+
+.kit-landing__reset {
+  display: grid;
+  grid-template-columns: minmax(120px, 190px) 1fr;
+  gap: 20px;
+  align-items: center;
+  padding: 18px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.75);
+  border: 1.5px solid rgba(234, 112, 127, 0.35);
+}
+
+.kit-landing__reset img {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 8px 9px rgba(42, 31, 28, 0.3)) drop-shadow(0 1px 1px rgba(42, 31, 28, 0.2));
+}
+
+.kit-landing__reset strong {
+  display: block;
+  font-family: "Schoolbell", cursive;
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: #8d4d62;
+}
+
+.kit-landing__reset p { margin: 0 0 10px; text-align: left; }
+.kit-landing__brand p { text-align: left; }
+.kit-landing__reset p:last-child { margin-bottom: 0; }
+
+.kit-landing__reset-sub {
+  font-weight: 700;
+  color: var(--text);
+}
+
+.kit-landing__flow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  margin: 20px 0;
+}
+
+.kit-landing__flow-box {
+  width: min(100%, 360px);
+  padding: 14px 18px;
+  border-radius: 14px;
+  text-align: center;
+}
+
+.kit-landing__flow-box strong {
+  display: block;
+  font-family: "Schoolbell", cursive;
+  font-size: 1.6rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
+
+.kit-landing__flow-box span { font-size: 0.92rem; }
+
+.kit-landing__flow-box--reset { background: #2f4a5f; color: #fff; }
+.kit-landing__flow-box--sos { background: #fff; border: 1.5px solid rgba(62, 47, 43, 0.12); color: var(--text); }
+
+.kit-landing__flow-arrow {
+  font-size: 1.5rem;
+  line-height: 1;
+  color: #c0707f;
+}
+
+.kit-landing__brand {
+  margin: 22px 0 0;
+  padding: 20px 22px;
+  border-left: 4px solid #e8738a;
+  border-radius: 0 14px 14px 0;
+  background: rgba(253, 227, 234, 0.55);
+}
+
+.kit-landing__brand p {
+  margin: 0 0 10px;
+  font-family: "Lora", Georgia, serif;
+  font-size: 1.05rem;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.kit-landing__brand footer {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--text);
+}
+
+.kit-landing__brand footer span {
+  font-weight: 500;
+  color: var(--muted);
+}
+
+@media (max-width: 560px) {
+  .kit-landing__products { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .kit-landing__reset { grid-template-columns: 1fr; }
+  .kit-landing__reset img { max-width: 190px; margin-inline: auto; }
+}
