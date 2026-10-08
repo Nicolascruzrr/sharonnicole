@@ -1,0 +1,2084 @@
+/* SoyEseBebé landing — scoped page (no global site styles) */
+:root {
+  --pink: #f472a8;
+  --pink-light: #fddcec;
+  --pink-dark: #c4417f;
+  --orange: #f97316;
+  --orange-light: #fef0e6;
+  --orange-dark: #c45a0c;
+  --yellow: #fbbf24;
+  --yellow-light: #fef9e7;
+  --yellow-dark: #9a7209;
+  --green: #4caf82;
+  --green-light: #e6f7ee;
+  --green-dark: #2d7a52;
+  /* Verde oliva para títulos (no está en el bloque de 4 colores; armoniza con el verde de marca) */
+  --olive: #5c6b3a;
+  --cream: #fffaf6;
+  --white: #ffffff;
+  --text: #2c1810;
+  --muted: #6b5348;
+  --para-cream: #fff6f0;
+  --shadow-orange: rgba(249, 115, 22, 0.28);
+  --shadow-pink: rgba(244, 114, 168, 0.35);
+  /* Azul sidebar / título Noches Completas; reutilizable en otras landings */
+  --seb-nc-headline-blue: #6a93aa;
+  /* Viñeta azul (p. ej. acompañamiento opcional en sidebar) */
+  --seb-ico-blue: #5b9bd5;
+  /* Fondos modalidades (tomados de la intensidad de marca de los tags rosa/amarillo/verde) */
+  --seb-tier-bg-pink: #faeaf1;
+  --seb-tier-bg-yellow: #fff7dd;
+  --seb-tier-bg-green: #ddebe4;
+  --max: 960px;
+  --pad-x: 48px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Con styles.css (topbar global): quitar fondo ilustrado del sitio en <html> */
+html:has(body.seb-page) {
+  background-image: none;
+  background-color: var(--cream);
+  background-size: auto;
+  background-attachment: scroll;
+}
+
+body.seb-page {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Nunito", system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--text);
+  background: var(--cream);
+  -webkit-font-smoothing: antialiased;
+}
+
+.seb-page img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.seb-wrap {
+  width: 100%;
+  max-width: var(--max);
+  margin-inline: auto;
+  padding-inline: var(--pad-x);
+}
+
+@media (max-width: 640px) {
+  :root {
+    --pad-x: 24px;
+  }
+}
+
+.seb-logo {
+  font-family: "Lora", Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.seb-logo__accent {
+  color: var(--pink);
+}
+
+.seb-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.2s;
+}
+
+.seb-btn--pill {
+  border-radius: 999px;
+  padding: 10px 22px;
+}
+
+.seb-btn--pink {
+  background: var(--pink);
+  color: var(--white);
+}
+
+.seb-btn--pink:hover {
+  background: var(--pink-dark);
+  transform: translateY(-1px);
+}
+
+.seb-btn--orange-pill {
+  background: var(--orange);
+  color: var(--white);
+  border-radius: 999px;
+  padding: 14px 28px;
+  box-shadow: 0 10px 28px var(--shadow-orange);
+}
+
+.seb-btn--orange-pill:hover {
+  background: var(--orange-dark);
+  transform: translateY(-1px);
+}
+
+.seb-btn--ghost {
+  background: transparent;
+  color: var(--text);
+  border-color: rgba(44, 24, 16, 0.22);
+  border-radius: 999px;
+  padding: 12px 24px;
+}
+
+.seb-btn--ghost:hover {
+  border-color: var(--text);
+  transform: translateY(-1px);
+}
+
+.seb-btn--pink-cta {
+  background: var(--pink);
+  color: var(--white);
+  border-radius: 999px;
+  padding: 14px 28px;
+  box-shadow: 0 10px 32px var(--shadow-pink);
+}
+
+.seb-btn--pink-cta:hover {
+  background: var(--pink-dark);
+  transform: translateY(-1px);
+}
+
+.seb-btn--block {
+  width: 100%;
+  border-radius: 14px;
+  padding: 16px 20px;
+}
+
+.seb-btn--dark-area {
+  border-radius: 999px;
+  padding: 14px 28px;
+}
+
+/* —— Hero —— */
+.seb-hero {
+  padding-top: 28px;
+  padding-bottom: 0;
+  overflow: hidden;
+}
+
+.seb-hero__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(24px, 4vw, 48px);
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .seb-hero__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.seb-hero__grid--solo {
+  grid-template-columns: 1fr;
+}
+
+.seb-hero__grid--solo .seb-hero__left {
+  max-width: 720px;
+}
+
+.seb-hero__left {
+  padding-top: 12px;
+  padding-bottom: 48px;
+  animation: seb-fade-up 0.75s ease both;
+  animation-delay: 0.05s;
+}
+
+.seb-badge {
+  display: inline-block;
+  background: var(--yellow-light);
+  color: var(--yellow-dark);
+  font-weight: 600;
+  font-size: 0.8125rem;
+  letter-spacing: 0.02em;
+  padding: 8px 14px;
+  border-radius: 999px;
+  margin-bottom: 18px;
+}
+
+.seb-hero__h1 {
+  font-family: "Lora", Georgia, serif;
+  font-size: clamp(2rem, 6vw, 3.375rem);
+  font-weight: 600;
+  line-height: 1.12;
+  margin: 0 0 16px;
+  color: var(--text);
+}
+
+@media (min-width: 901px) {
+  .seb-hero__h1 {
+    font-size: 3.375rem;
+  }
+}
+
+.seb-hero__h1-curso {
+  color: rgb(226, 166, 195);
+  font-style: normal;
+  font-weight: 600;
+}
+
+.seb-hero__h1-olive {
+  font-style: italic;
+  color: rgb(141, 151, 121);
+  font-weight: 600;
+}
+
+.seb-hero__lede {
+  font-size: 15.5px;
+  color: var(--muted);
+  max-width: 34em;
+  margin: 0 0 22px;
+  text-align: justify;
+  text-wrap: pretty;
+}
+
+.seb-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.seb-chip {
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 10px 14px;
+  border-radius: 10px;
+}
+
+.seb-chip--orange {
+  background: var(--orange-light);
+  color: var(--orange-dark);
+}
+
+.seb-chip--pink {
+  background: var(--pink-light);
+  color: var(--pink-dark);
+}
+
+.seb-chip--green {
+  background: var(--green-light);
+  color: var(--green-dark);
+}
+
+/* Hero media */
+.seb-hero__right {
+  position: relative;
+  min-height: 420px;
+  animation: seb-fade-up 0.75s ease both;
+  animation-delay: 0.18s;
+}
+
+@media (max-width: 900px) {
+  .seb-hero__right {
+    min-height: 320px;
+    max-width: 420px;
+    margin-inline: auto;
+  }
+}
+
+.seb-hero-media {
+  position: relative;
+  border-radius: 28px 28px 0 0;
+  overflow: hidden;
+  background: var(--white);
+}
+
+.seb-hero-media__img {
+  display: block;
+  width: 100%;
+  min-height: 380px;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Ajuste solo para la página del segundo curso (foto de Guillermo) */
+.seb-page--guillermo .seb-hero-media {
+  border-radius: 24px;
+}
+
+.seb-page--guillermo .seb-hero-media__img {
+  border-radius: 24px;
+  transform: scale(1.06);
+  transform-origin: center;
+  object-position: center 80%;
+}
+
+@media (max-width: 900px) {
+  .seb-hero-media__img {
+    min-height: 280px;
+  }
+}
+
+@keyframes seb-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* —— Section label (eyebrow pill) —— */
+.seb-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1.8px;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  padding: 6px 12px 6px 10px;
+  border-radius: 999px;
+  margin-bottom: 14px;
+}
+
+.seb-tag::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.seb-tag--orange {
+  background: var(--orange-light);
+  color: var(--orange-dark);
+}
+.seb-tag--orange::before {
+  background: var(--orange);
+}
+
+.seb-tag--pink {
+  background: var(--pink-light);
+  color: var(--pink-dark);
+}
+.seb-tag--pink::before {
+  background: var(--pink);
+}
+
+.seb-tag--green {
+  background: var(--green-light);
+  color: var(--green-dark);
+}
+.seb-tag--green::before {
+  background: var(--green);
+}
+
+.seb-tag--yellow-pill {
+  background: rgba(251, 191, 36, 0.2);
+  color: var(--yellow-dark);
+  text-transform: none;
+  letter-spacing: 0.04em;
+  font-size: 0.8125rem;
+}
+
+/* —— Main + sidebar —— */
+.seb-band {
+  padding-block: 56px 72px;
+  background: var(--cream);
+}
+
+.seb-main-grid {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 40px;
+  align-items: start;
+}
+
+@media (max-width: 960px) {
+  .seb-main-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto minmax(0, 1fr);
+    align-items: stretch;
+    min-height: calc(100vh - 80px);
+    min-height: calc(100dvh - 80px);
+  }
+
+  .seb-sidebar {
+    position: static;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    align-self: stretch;
+    width: 100%;
+    max-width: none;
+  }
+
+  .seb-price {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+  }
+
+  .seb-price__body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Deja hueco hasta el fondo visual del box; CTAs pegados abajo dentro del área blanca */
+  .seb-price__actions {
+    margin-top: auto;
+  }
+}
+
+.seb-prose h2 {
+  font-family: "Lora", Georgia, serif;
+  font-size: clamp(1.5rem, 2.5vw, 1.875rem);
+  font-weight: 600;
+  margin: 0 0 12px;
+  line-height: 1.2;
+  color: var(--text);
+}
+
+.seb-prose h2 em {
+  font-style: italic;
+  color: var(--orange);
+}
+
+.seb-section--pink h2 em {
+  color: var(--pink);
+}
+
+.seb-section--green h2 em {
+  color: var(--green);
+}
+
+/* Landings (body.seb-page): columna principal justificada */
+body.seb-page .seb-prose p {
+  text-align: justify;
+  text-wrap: pretty;
+}
+
+body.seb-page .seb-prose article.seb-section--green .seb-achieve-list li {
+  text-align: justify;
+  text-wrap: pretty;
+}
+
+.seb-prose p {
+  margin: 0 0 16px;
+  color: var(--text);
+}
+
+.seb-achieve-list {
+  list-style: none;
+  margin: 0 0 16px;
+  padding: 0;
+}
+
+.seb-achieve-list li {
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: rgb(42, 146, 103);
+}
+
+.seb-achieve-list li:last-child {
+  margin-bottom: 0;
+}
+
+.seb-block {
+  margin-bottom: 48px;
+}
+
+.seb-block:last-child {
+  margin-bottom: 0;
+}
+
+/* Learn list */
+.seb-learn-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.seb-learn-item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 16px;
+  align-items: start;
+  padding: 18px 0;
+  border-bottom: 1px dashed var(--orange);
+}
+
+.seb-learn-item:first-child {
+  padding-top: 0;
+}
+
+.seb-learn-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.seb-num {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  color: var(--white);
+  flex-shrink: 0;
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.seb-num:hover {
+  transform: scale(1.07);
+  box-shadow: 0 6px 18px rgba(44, 24, 16, 0.18);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .seb-num {
+    transition: none;
+  }
+
+  .seb-num:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+.seb-num--pink {
+  background: var(--pink);
+}
+.seb-num--orange {
+  background: var(--orange);
+}
+.seb-num--yellow {
+  background: var(--yellow);
+  color: var(--white);
+}
+.seb-num--green {
+  background: var(--green);
+}
+
+.seb-learn-item p {
+  margin: 0;
+  font-weight: 500;
+  text-align: justify;
+  text-wrap: pretty;
+}
+
+/* Yellow strip */
+.seb-strip {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  background: var(--yellow-light);
+  border: 1px solid rgba(251, 191, 36, 0.45);
+  border-radius: 14px;
+  padding: 18px 18px;
+  margin-top: 16px;
+}
+
+.seb-strip__icon {
+  font-size: 1.35rem;
+  line-height: 1;
+}
+
+.seb-strip strong {
+  display: block;
+  font-family: "Lora", Georgia, serif;
+  font-size: 1.05rem;
+  margin-bottom: 4px;
+  color: var(--text);
+}
+
+.seb-strip p {
+  margin: 0;
+  font-size: 0.9375rem;
+  color: var(--muted);
+}
+
+.seb-hero__lede + .seb-hero__lede {
+  margin-top: -12px;
+}
+
+.seb-learn-item p strong {
+  display: block;
+  margin-bottom: 2px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.seb-about-lead strong {
+  font-family: "Lora", Georgia, serif;
+  font-size: 1.1rem;
+  color: var(--text);
+}
+
+.seb-fit .seb-strip {
+  margin-top: 18px;
+}
+
+.seb-fit__btn {
+  margin-top: 14px;
+}
+
+/* —— Price card —— */
+.seb-sidebar {
+  position: sticky;
+  top: 84px;
+}
+
+.seb-price {
+  background: var(--white);
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(44, 24, 16, 0.08);
+}
+
+.seb-price__head {
+  position: relative;
+  background: var(--olive);
+  color: var(--white);
+  padding: 28px 22px 26px;
+  overflow: hidden;
+}
+
+.seb-price__head::before,
+.seb-price__head::after {
+  content: "";
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  pointer-events: none;
+}
+
+.seb-price__head::before {
+  top: -60px;
+  right: -40px;
+}
+
+.seb-price__head::after {
+  bottom: -70px;
+  left: -50px;
+}
+
+.seb-price__label {
+  position: relative;
+  font-family: "Nunito", system-ui, sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  opacity: 0.95;
+  margin-bottom: 6px;
+}
+
+.seb-price__amount {
+  position: relative;
+  font-family: "Lora", Georgia, serif;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0 0 6px;
+}
+
+.seb-price__note {
+  position: relative;
+  font-family: "Nunito", system-ui, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  opacity: 0.95;
+  margin: 0;
+}
+
+.seb-price__body {
+  padding: 22px;
+}
+
+.seb-price-features {
+  list-style: none;
+  margin: 0 0 20px;
+  padding: 0;
+}
+
+.seb-price-features li {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  margin-bottom: 12px;
+  font-size: 0.9375rem;
+  font-weight: 500;
+}
+
+.seb-price-features li:last-child {
+  margin-bottom: 0;
+}
+
+.seb-ico {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.seb-ico--pink {
+  background: var(--pink);
+}
+.seb-ico--yellow {
+  background: var(--yellow);
+}
+.seb-ico--orange {
+  background: var(--orange);
+}
+.seb-ico--green {
+  background: var(--green);
+}
+.seb-ico--blue {
+  background: var(--seb-ico-blue);
+}
+
+.seb-price__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.seb-price__actions > .seb-btn--pink {
+  box-shadow: 0 10px 32px var(--shadow-pink);
+}
+
+.seb-price__fine {
+  font-size: 0.8125rem;
+  color: var(--muted);
+  text-align: center;
+  margin: 0;
+  line-height: 1.45;
+}
+
+/* —— FAQ (curso) — mismo crema que #para-quien —— */
+.seb-faq {
+  padding: 56px 0;
+  background: hsl(42 52% 97%);
+  border-top: 2px dashed rgba(62, 47, 43, 0.1);
+}
+
+.seb-faq__inner {
+  max-width: var(--max);
+}
+
+.seb-faq__eyebrow {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--green-dark);
+  margin: 0 0 8px;
+}
+
+.seb-faq__title {
+  font-family: "Lora", Georgia, serif;
+  font-size: clamp(1.5rem, 3.5vw, 2rem);
+  font-weight: 600;
+  color: var(--olive);
+  margin: 0 0 24px;
+}
+
+.seb-faq__list details {
+  border: 1px solid rgba(44, 24, 16, 0.1);
+  border-radius: 14px;
+  background: var(--white);
+  padding: 14px 16px;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 16px rgba(44, 24, 16, 0.04);
+}
+
+.seb-faq__list summary {
+  font-weight: 700;
+  cursor: pointer;
+  color: var(--text);
+}
+
+.seb-faq__list details p {
+  margin: 10px 0 0;
+  color: var(--muted);
+}
+
+.seb-faq__list details p + p {
+  margin-top: 0.65rem;
+}
+
+.seb-faq__list details .seb-faq__bullets {
+  margin: 8px 0 0 1.15em;
+  padding-left: 0.35em;
+  color: var(--muted);
+}
+
+.seb-faq__list details .seb-faq__bullets li {
+  margin: 0.35em 0;
+}
+
+.seb-faq__list details a {
+  color: var(--pink-dark);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.seb-faq__list details a:hover {
+  color: var(--olive);
+}
+
+/* —— Footer —— */
+.seb-footer {
+  background: var(--white);
+  border-top: 3px solid var(--pink-light);
+  padding: 28px var(--pad-x);
+}
+
+.seb-footer__inner {
+  max-width: var(--max);
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.seb-footer__nav {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex: 1;
+}
+
+.seb-footer__nav a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9375rem;
+}
+
+.seb-footer__nav a:hover {
+  color: var(--pink-dark);
+}
+
+.seb-footer__copy {
+  font-size: 0.8125rem;
+  color: var(--muted);
+  margin: 0;
+}
+
+@media (max-width: 720px) {
+  .seb-footer__inner {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/*
+ * Etiquetas de sección (.seb-tag): mismo criterio que .seb-badge del hero
+ * (Nunito, pastilla crema, texto dorado / marrón suave).
+ */
+body.seb-page--noches-completas .seb-tag,
+body.seb-page--sueno-desde-cero .seb-tag,
+body.seb-page--acompanamiento .seb-tag {
+  font-family: "Nunito", system-ui, sans-serif;
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: 0.02em;
+  font-size: 0.8125rem;
+  background: var(--yellow-light);
+  color: var(--yellow-dark);
+  padding: 8px 14px;
+  gap: 0;
+}
+
+/* Igual que .seb-badge: sin viñeta circular */
+body.seb-page--noches-completas .seb-tag::before,
+body.seb-page--sueno-desde-cero .seb-tag::before,
+body.seb-page--acompanamiento .seb-tag::before {
+  content: none;
+  display: none;
+}
+
+/* Títulos (hero, bloques, FAQ, precio): Schoolbell — sin tocar .seb-tag arriba */
+body.seb-page--noches-completas .seb-hero__h1,
+body.seb-page--noches-completas .seb-hero__h1 .seb-hero__h1-curso,
+body.seb-page--noches-completas .seb-hero__h1 .seb-hero__h1-olive,
+body.seb-page--sueno-desde-cero .seb-hero__h1,
+body.seb-page--sueno-desde-cero .seb-hero__h1 .seb-hero__h1-curso,
+body.seb-page--sueno-desde-cero .seb-hero__h1 .seb-hero__h1-olive,
+body.seb-page--acompanamiento .seb-hero__h1,
+body.seb-page--acompanamiento .seb-hero__h1 .seb-hero__h1-curso,
+body.seb-page--acompanamiento .seb-hero__h1 .seb-hero__h1-olive,
+body.seb-page--plantilla-reset .seb-hero__h1,
+body.seb-page--plantilla-reset .seb-hero__h1 .seb-hero__h1-curso,
+body.seb-page--plantilla-reset .seb-hero__h1 .seb-hero__h1-olive,
+body.seb-page--plantilla-siestas .seb-hero__h1,
+body.seb-page--plantilla-siestas .seb-hero__h1 .seb-hero__h1-curso,
+body.seb-page--plantilla-siestas .seb-hero__h1 .seb-hero__h1-olive,
+body.seb-page--plantilla-despertares .seb-hero__h1,
+body.seb-page--plantilla-despertares .seb-hero__h1 .seb-hero__h1-curso,
+body.seb-page--plantilla-despertares .seb-hero__h1 .seb-hero__h1-olive,
+body.seb-page--plantilla-madrugadores .seb-hero__h1,
+body.seb-page--plantilla-madrugadores .seb-hero__h1 .seb-hero__h1-curso,
+body.seb-page--plantilla-madrugadores .seb-hero__h1 .seb-hero__h1-olive,
+body.seb-page--plantilla-rutina .seb-hero__h1,
+body.seb-page--plantilla-rutina .seb-hero__h1 .seb-hero__h1-curso,
+body.seb-page--plantilla-rutina .seb-hero__h1 .seb-hero__h1-olive,
+body.seb-page--plantilla-hora-dormir .seb-hero__h1,
+body.seb-page--plantilla-hora-dormir .seb-hero__h1 .seb-hero__h1-curso,
+body.seb-page--plantilla-hora-dormir .seb-hero__h1 .seb-hero__h1-olive {
+  font-family: "Schoolbell", cursive;
+  font-weight: 400;
+}
+
+body.seb-page--noches-completas .seb-prose h2,
+body.seb-page--sueno-desde-cero .seb-prose h2,
+body.seb-page--acompanamiento .seb-prose h2,
+body.seb-page--plantilla-reset .seb-prose h2,
+body.seb-page--plantilla-siestas .seb-prose h2,
+body.seb-page--plantilla-despertares .seb-prose h2,
+body.seb-page--plantilla-madrugadores .seb-prose h2,
+body.seb-page--plantilla-rutina .seb-prose h2,
+body.seb-page--plantilla-hora-dormir .seb-prose h2 {
+  font-family: "Schoolbell", cursive;
+  font-weight: 400;
+}
+
+body.seb-page--noches-completas .seb-faq__eyebrow,
+body.seb-page--noches-completas .seb-faq__title,
+body.seb-page--sueno-desde-cero .seb-faq__eyebrow,
+body.seb-page--sueno-desde-cero .seb-faq__title,
+body.seb-page--acompanamiento .seb-faq__eyebrow,
+body.seb-page--acompanamiento .seb-faq__title {
+  font-family: "Schoolbell", cursive;
+  font-weight: 400;
+}
+
+body.seb-page--noches-completas .seb-faq__eyebrow,
+body.seb-page--sueno-desde-cero .seb-faq__eyebrow,
+body.seb-page--acompanamiento .seb-faq__eyebrow {
+  text-transform: none;
+  letter-spacing: 0.05em;
+}
+
+body.seb-page--noches-completas .seb-faq__list summary,
+body.seb-page--sueno-desde-cero .seb-faq__list summary,
+body.seb-page--acompanamiento .seb-faq__list summary {
+  font-family: "Schoolbell", cursive;
+  font-weight: 400;
+}
+
+body.seb-page--noches-completas .seb-price__label,
+body.seb-page--sueno-desde-cero .seb-price__label,
+body.seb-page--acompanamiento .seb-price__label {
+  font-family: "Nunito", system-ui, sans-serif;
+  font-weight: 800;
+}
+
+body.seb-page--noches-completas .seb-price__note,
+body.seb-page--sueno-desde-cero .seb-price__note,
+body.seb-page--acompanamiento .seb-price__note {
+  font-family: "Nunito", system-ui, sans-serif;
+  font-weight: 600;
+  font-size: calc(0.875rem + 1.5px);
+}
+
+/* Precio sidebar: segundo curso — fondo amarillo claro + texto oscuro */
+body.seb-page--noches-completas .seb-price__head {
+  background: var(--yellow-light);
+  color: var(--text);
+}
+
+body.seb-page--noches-completas .seb-price__head::before,
+body.seb-page--noches-completas .seb-price__head::after {
+  background: rgba(251, 191, 36, 0.18);
+}
+
+body.seb-page--noches-completas .seb-price__amount {
+  color: var(--text);
+}
+
+body.seb-page--noches-completas .seb-lograr-nc__how {
+  font-family: "Schoolbell", cursive;
+  font-weight: 400;
+  font-size: clamp(1.35rem, 3vw, 1.65rem);
+  color: var(--green-dark);
+  margin: 1.5rem 0 12px;
+  line-height: 1.25;
+}
+
+/* Hero título Curso Noches Completas: naranja claro + azul del nombre del curso */
+body.seb-page--noches-completas .seb-hero__h1-curso {
+  color: #eb7f48;
+}
+
+body.seb-page--noches-completas .seb-hero__h1 .seb-hero__h1-olive {
+  color: var(--seb-nc-headline-blue);
+}
+
+/* Agenda acompañamiento: hero — foto algo más pequeña y esquinas redondeadas por completo */
+body.seb-page--acompanamiento .seb-hero-media {
+  border-radius: 22px;
+  overflow: hidden;
+  width: min(100%, calc(100% - 20px));
+  max-width: 560px;
+  margin-inline: auto;
+}
+
+body.seb-page--acompanamiento .seb-hero-media__img {
+  border-radius: 22px;
+  min-height: 378px;
+}
+
+@media (max-width: 900px) {
+  body.seb-page--acompanamiento .seb-hero-media {
+    width: min(100%, calc(100% - 16px));
+    max-width: none;
+  }
+
+  body.seb-page--acompanamiento .seb-hero-media__img {
+    min-height: 288px;
+  }
+}
+
+/* Agenda acompañamiento: hero violeta suave · sidebar mismo azul que usaba precio del 2º curso */
+body.seb-page--acompanamiento .seb-hero__h1-curso {
+  color: #dda4c8;
+}
+
+body.seb-page--acompanamiento .seb-hero__h1 .seb-hero__h1-olive {
+  color: #9283b8;
+}
+
+body.seb-page--acompanamiento .seb-price__head {
+  background: var(--seb-nc-headline-blue);
+  color: var(--white);
+}
+
+body.seb-page--acompanamiento .seb-price__head::before,
+body.seb-page--acompanamiento .seb-price__head::after {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+body.seb-page--acompanamiento .seb-price__amount {
+  color: var(--white);
+}
+
+body.seb-page--acompanamiento .seb-cta-band {
+  margin: 1.25rem 0 0.75rem;
+}
+
+body.seb-page--acompanamiento .seb-topic-list {
+  margin: 0 0 1rem;
+  padding-left: 1.15rem;
+  color: var(--text);
+  line-height: 1.65;
+}
+
+body.seb-page--acompanamiento .seb-topic-list li + li {
+  margin-top: 0.35rem;
+}
+
+body.seb-page--acompanamiento .seb-tier-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 14px;
+}
+
+body.seb-page--acompanamiento .seb-tier {
+  border-radius: 14px;
+  border: 1px solid rgba(44, 24, 16, 0.1);
+  background: var(--white);
+  padding: 18px 18px 20px;
+  box-shadow: 0 5px 20px rgba(44, 24, 16, 0.05);
+}
+
+body.seb-page--acompanamiento .seb-tier--pink {
+  background: var(--seb-tier-bg-pink);
+  border-color: rgba(244, 114, 168, 0.42);
+}
+
+body.seb-page--acompanamiento .seb-tier--yellow {
+  background: var(--seb-tier-bg-yellow);
+  border-color: rgba(251, 191, 36, 0.52);
+}
+
+body.seb-page--acompanamiento .seb-tier--green {
+  background: var(--seb-tier-bg-green);
+  border-color: rgba(76, 175, 130, 0.42);
+}
+
+body.seb-page--acompanamiento .seb-tier__name {
+  font-family: "Schoolbell", cursive;
+  font-size: clamp(1.2rem, 2.6vw, 1.42rem);
+  font-weight: 400;
+  color: var(--text);
+  margin: 0 0 10px;
+}
+
+body.seb-page--acompanamiento .seb-tier__price-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  margin: 14px 0 0;
+}
+
+body.seb-page--acompanamiento .seb-tier__amount {
+  font-family: "Lora", Georgia, serif;
+  font-weight: 700;
+  font-size: 1.45rem;
+  color: var(--text);
+}
+
+body.seb-page--acompanamiento .seb-tier__agenda-link {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 16px;
+  margin: 0;
+  border: 1px solid rgba(44, 24, 16, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 4px 12px rgba(44, 24, 16, 0.06);
+  font-family: "Nunito", system-ui, sans-serif;
+  font-size: 0.8925rem;
+  font-weight: 700;
+  color: var(--text);
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+}
+
+body.seb-page--acompanamiento .seb-tier .seb-achieve-list li {
+  color: var(--text);
+}
+
+body.seb-page--acompanamiento .seb-tier__agenda-link:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(44, 24, 16, 0.1);
+}
+
+body.seb-page--acompanamiento .seb-tier--pink .seb-tier__agenda-link {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(196, 65, 127, 0.26);
+}
+
+body.seb-page--acompanamiento .seb-tier--yellow .seb-tier__agenda-link {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(154, 114, 9, 0.22);
+}
+
+body.seb-page--acompanamiento .seb-tier--green .seb-tier__agenda-link {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(45, 122, 82, 0.25);
+}
+
+body.seb-page--acompanamiento .seb-tier__agenda-link:focus-visible {
+  outline: 2px solid var(--pink);
+  outline-offset: 3px;
+}
+
+body.seb-page--acompanamiento .seb-tier__neg {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+  font-size: 0.9025rem;
+  color: var(--muted);
+  line-height: 1.48;
+}
+
+body.seb-page--acompanamiento .seb-tier__neg li + li {
+  margin-top: 4px;
+}
+
+body.seb-page--acompanamiento .seb-tier__neg li::before {
+  content: "– ";
+}
+
+body.seb-page--acompanamiento .seb-bonus-box {
+  margin-top: 20px;
+  padding: 16px 18px;
+  border-radius: 12px;
+  background: var(--pink-light);
+  border: 1px solid rgba(212, 65, 126, 0.12);
+  color: var(--text);
+}
+
+body.seb-page--acompanamiento .seb-bonus-box strong {
+  color: var(--pink-dark);
+}
+
+body.seb-page--acompanamiento .seb-tier-intro .seb-tag {
+  margin-top: 1.25rem;
+}
+
+body.seb-page--acompanamiento .seb-tier-intro h2 {
+  margin-top: 0.85rem;
+}
+
+/* Botón «Agendar» (Solo llamada): mismo aspecto que el enlace */
+body.seb-page--acompanamiento button.seb-tier__agenda-link {
+  font: inherit;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+/* Modal: Calendly → Hotmart (solo página agenda) */
+html.seb-flow-modal-open,
+body.seb-flow-modal-open {
+  overflow: hidden;
+}
+
+.seb-flow-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(0.75rem, 3vw, 1.25rem);
+  box-sizing: border-box;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.22s ease, visibility 0.22s ease;
+}
+
+.seb-flow-modal.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.seb-flow-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(62, 47, 43, 0.45);
+  cursor: pointer;
+}
+
+.seb-flow-modal__dialog {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 920px);
+  /* Casi todo el alto del viewport: el calendario usa el espacio restante */
+  height: min(900px, calc(100vh - 2 * clamp(0.75rem, 3vw, 1.25rem)));
+  max-height: min(900px, calc(100vh - 2 * clamp(0.75rem, 3vw, 1.25rem)));
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  margin: 0;
+  padding: clamp(1rem, 3vw, 1.5rem) clamp(1rem, 3vw, 1.75rem) 1rem;
+  border-radius: 18px;
+  background: var(--cream);
+  box-shadow: 0 20px 50px rgba(44, 24, 16, 0.18);
+  outline: none;
+}
+
+@supports (height: 100dvh) {
+  .seb-flow-modal__dialog {
+    height: min(900px, calc(100dvh - 2 * clamp(0.75rem, 3vw, 1.25rem)));
+    max-height: min(900px, calc(100dvh - 2 * clamp(0.75rem, 3vw, 1.25rem)));
+  }
+}
+
+.seb-flow-modal__close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 10px;
+  background: rgba(44, 24, 16, 0.06);
+  color: var(--text);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.seb-flow-modal__close:hover {
+  background: rgba(44, 24, 16, 0.1);
+}
+
+.seb-flow-modal__title {
+  font-family: "Lora", Georgia, serif;
+  font-size: clamp(1.2rem, 2.8vw, 1.5rem);
+  font-weight: 600;
+  margin: 0 2.25rem 0.5rem 0;
+  color: var(--text);
+  flex-shrink: 0;
+}
+
+.seb-flow-modal__lede {
+  margin: 0 2.25rem 0.75rem 0;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: var(--muted);
+  flex-shrink: 0;
+}
+
+.seb-flow-modal__success {
+  margin: 0;
+  padding: 1.25rem 1rem;
+  border-radius: 12px;
+  background: var(--green-light);
+  border: 1px solid rgba(76, 175, 130, 0.35);
+  color: var(--text);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  text-align: center;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.seb-flow-modal__calendly-host {
+  flex: 1 1 auto;
+  min-height: 0;
+  margin: 0 -4px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Wrapper que inyecta Calendly (.calendly-inline-widget) */
+.seb-flow-modal__calendly-host .calendly-inline-widget {
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  height: 100% !important;
+  max-width: 100% !important;
+}
+
+/* Calendly fija altura en línea; forzamos a llenar el panel */
+.seb-flow-modal__calendly-host iframe {
+  flex: 1 1 auto;
+  width: 100% !important;
+  min-height: 100% !important;
+  height: 100% !important;
+  border: 0;
+  border-radius: 10px;
+}
+
+.seb-flow-modal__error {
+  margin: 0;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: var(--pink-light);
+  color: var(--text);
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.seb-flow-modal__error a {
+  color: var(--pink-dark);
+  font-weight: 600;
+}
+
+/* Modal: 3 planes de compra (cursos) */
+html.seb-plans-modal-open,
+body.seb-plans-modal-open {
+  overflow: hidden;
+}
+
+button.seb-btn {
+  font: inherit;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.seb-plans-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(0.75rem, 3vw, 1.5rem);
+  box-sizing: border-box;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.24s ease, visibility 0.24s ease;
+}
+
+.seb-plans-modal.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.seb-plans-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(62, 47, 43, 0.52);
+  cursor: pointer;
+}
+
+.seb-plans-modal__dialog {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 1080px);
+  max-height: min(920px, calc(100vh - 2rem));
+  overflow: auto;
+  margin: 0;
+  padding: clamp(1.25rem, 3.5vw, 2rem) clamp(1rem, 3vw, 1.75rem) 1.5rem;
+  border-radius: 20px;
+  background: var(--cream);
+  border: 1px solid rgba(44, 24, 16, 0.08);
+  box-shadow: 0 24px 60px rgba(44, 24, 16, 0.2);
+  outline: none;
+}
+
+@supports (height: 100dvh) {
+  .seb-plans-modal__dialog {
+    max-height: min(920px, calc(100dvh - 2rem));
+  }
+}
+
+.seb-plans-modal__close {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 10px;
+  background: rgba(44, 24, 16, 0.06);
+  color: var(--text);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.seb-plans-modal__close:hover {
+  background: rgba(44, 24, 16, 0.1);
+}
+
+.seb-plans-modal__header {
+  text-align: center;
+  max-width: 36rem;
+  margin: 0 auto 1.5rem;
+  padding-right: 2rem;
+}
+
+.seb-plans-modal__subtitle {
+  margin: 0 0 0.35rem;
+  font-family: "Nunito", system-ui, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--pink-dark);
+}
+
+.seb-plans-modal__title {
+  font-family: "Lora", Georgia, serif;
+  font-size: clamp(1.45rem, 3.2vw, 2rem);
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 0;
+  color: var(--text);
+}
+
+.seb-plans-modal__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  align-items: stretch;
+}
+
+@media (max-width: 900px) {
+  .seb-plans-modal__grid {
+    grid-template-columns: 1fr;
+    max-width: 22rem;
+    margin-inline: auto;
+  }
+}
+
+.seb-plan-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  padding: 1.25rem 1.15rem 1.15rem;
+  border-radius: 16px;
+  border: 1px solid rgba(44, 24, 16, 0.1);
+  background: var(--white);
+  box-shadow: 0 8px 24px rgba(44, 24, 16, 0.06);
+}
+
+.seb-plan-card--pink {
+  background: var(--seb-tier-bg-pink);
+  border-color: rgba(196, 65, 127, 0.14);
+}
+
+.seb-plan-card--yellow {
+  background: var(--seb-tier-bg-yellow);
+  border-color: rgba(154, 114, 9, 0.16);
+}
+
+.seb-plan-card--green {
+  background: var(--seb-tier-bg-green);
+  border-color: rgba(45, 122, 82, 0.16);
+}
+
+.seb-plan-card--featured {
+  border-width: 2px;
+  border-color: rgba(244, 114, 168, 0.45);
+  box-shadow: 0 14px 36px rgba(244, 114, 168, 0.18);
+}
+
+.seb-plan-card__badge {
+  position: absolute;
+  top: -11px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.28rem 0.65rem;
+  border-radius: 999px;
+  background: var(--pink);
+  color: var(--white);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.seb-plan-card__icon {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 8px;
+  margin-bottom: 0.85rem;
+  flex-shrink: 0;
+}
+
+.seb-plan-card--pink .seb-plan-card__icon {
+  background: var(--pink);
+}
+
+.seb-plan-card--yellow .seb-plan-card__icon {
+  background: var(--yellow);
+}
+
+.seb-plan-card--green .seb-plan-card__icon {
+  background: var(--green);
+}
+
+.seb-plan-card__name {
+  margin: 0 0 0.2rem;
+  font-family: "Lora", Georgia, serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.seb-plan-card__tagline {
+  margin: 0 0 0.85rem;
+  font-size: 0.875rem;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+.seb-plan-card__price-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.seb-plan-card__price {
+  font-family: "Lora", Georgia, serif;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--text);
+}
+
+.seb-plan-card__price::before {
+  content: "$";
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-right: 1px;
+}
+
+.seb-plan-card__billing {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+button.seb-plan-card__cta {
+  font: inherit;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.seb-plan-card__cta {
+  display: block;
+  width: 100%;
+  margin-bottom: 0.75rem;
+  border-radius: 14px;
+  padding: 14px 16px;
+  font-family: "Nunito", system-ui, sans-serif;
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border: 2px solid transparent;
+  box-sizing: border-box;
+  transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.2s;
+}
+
+.seb-plan-card__cta--ghost {
+  background: transparent;
+  color: var(--text);
+  border-color: rgba(44, 24, 16, 0.22);
+}
+
+.seb-plan-card__cta--ghost:hover {
+  border-color: var(--text);
+  transform: translateY(-1px);
+}
+
+.seb-plan-card__cta--primary {
+  background: var(--pink);
+  color: var(--white);
+  box-shadow: 0 8px 22px var(--shadow-pink);
+}
+
+.seb-plan-card__cta--primary:hover {
+  background: var(--pink-dark);
+  transform: translateY(-1px);
+}
+
+.seb-plan-card__fine {
+  margin: -0.35rem 0 0.75rem;
+  font-size: 0.72rem;
+  color: var(--muted);
+  text-align: center;
+  line-height: 1.35;
+}
+
+.seb-plan-card__divider {
+  height: 1px;
+  margin: 0 0 0.85rem;
+  background: rgba(44, 24, 16, 0.1);
+  border: 0;
+}
+
+.seb-plan-card__features {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex: 1;
+}
+
+.seb-plan-card__features li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.5rem;
+  align-items: start;
+  margin-bottom: 0.55rem;
+  font-size: 0.86rem;
+  line-height: 1.45;
+  color: var(--text);
+}
+
+.seb-plan-card__features li:last-child {
+  margin-bottom: 0;
+}
+
+.seb-plan-card__check {
+  width: 1rem;
+  height: 1rem;
+  margin-top: 0.15rem;
+  border-radius: 50%;
+  background: rgba(76, 175, 130, 0.2);
+  color: var(--green-dark);
+  font-size: 0.62rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.seb-plans-modal__footnote {
+  margin: 1.15rem 0 0;
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+
+/* ——— Landing Kit SOS ——— */
+body.seb-page--kit-sos .seb-hero__h1,
+body.seb-page--kit-sos .seb-hero__h1 .seb-hero__h1-curso,
+body.seb-page--kit-sos .seb-hero__h1 .seb-hero__h1-olive,
+body.seb-page--kit-sos .seb-prose h2 {
+  font-family: "Schoolbell", cursive;
+  font-weight: 400;
+}
+
+.kit-landing__bullets {
+  margin: 0 0 4px;
+  padding-left: 1.25rem;
+  list-style: disc;
+}
+
+.kit-landing__bullets li {
+  margin: 0;
+  padding: 18px 0 18px 4px;
+  border-bottom: 1px dashed var(--orange);
+  font-weight: 500;
+  text-align: justify;
+  text-wrap: pretty;
+}
+
+.kit-landing__bullets li:first-child {
+  padding-top: 0;
+}
+
+.kit-landing__bullets li:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.kit-landing__bullets li::marker {
+  color: var(--orange);
+}
+
+.kit-landing__bullets li strong {
+  display: block;
+  margin-bottom: 2px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.kit-landing__fine {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.kit-landing__fine--left {
+  margin-top: 10px;
+}
+
+/* ——— Landing Kit Completo ——— */
+.kit-landing__badge {
+  background: var(--yellow-light);
+  color: var(--yellow-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.72rem;
+}
+
+.kit-landing__eyebrow {
+  margin: 0 0 6px;
+  font-family: "Schoolbell", cursive;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  color: #8d4d62;
+}
+
+body.seb-page--kit-completo .seb-hero__right.kit-hero-art,
+body.seb-page--kit-sos .seb-hero__right.kit-hero-art {
+  position: relative;
+  min-height: 0;
+  width: 100%;
+  max-width: 480px;
+  margin-inline: auto;
+  aspect-ratio: 1 / 1;
+  align-self: center;
+}
+
+.kit-hero-art__cover {
+  position: absolute;
+  display: block;
+  width: 30%;
+  height: auto;
+  filter: drop-shadow(0 8px 10px rgba(42, 31, 28, 0.28)) drop-shadow(0 1px 1px rgba(42, 31, 28, 0.25));
+}
+
+.kit-hero-art__cover--1 { left: 0; top: 2%; transform: rotate(-7deg); z-index: 1; }
+.kit-hero-art__cover--2 { left: 17.5%; top: 0; transform: rotate(-3deg); z-index: 2; }
+.kit-hero-art__cover--3 { left: 35%; top: -2%; z-index: 3; }
+.kit-hero-art__cover--4 { left: 52.5%; top: 0; transform: rotate(3deg); z-index: 4; }
+.kit-hero-art__cover--5 { left: 70%; top: 2%; transform: rotate(7deg); z-index: 5; }
+body.seb-page--kit-sos .seb-hero__right.kit-hero-art.kit-hero-art--sos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px 16px;
+  margin-bottom: 32px;
+  max-width: 310px;
+  aspect-ratio: auto;
+  animation: none;
+}
+
+.kit-hero-art--sos .kit-hero-art__cover {
+  position: static;
+  width: 100%;
+  top: auto;
+  left: auto;
+  transform: none;
+}
+
+.kit-hero-art--sos .kit-hero-art__cover--5 {
+  grid-column: 1 / -1;
+  width: 50%;
+  justify-self: center;
+}
+.kit-hero-art__cover--reset {
+  left: 25%;
+  top: 33%;
+  width: 50%;
+  transform: rotate(2deg);
+  z-index: 10;
+  filter: drop-shadow(0 14px 16px rgba(42, 31, 28, 0.34)) drop-shadow(0 1px 1px rgba(42, 31, 28, 0.25));
+}
+
+.kit-landing__steps {
+  display: grid;
+  gap: 14px;
+  margin: 18px 0 22px;
+}
+
+.kit-landing__step {
+  padding: 18px 20px 6px;
+  border-radius: 16px;
+  border: 1px solid rgba(62, 47, 43, 0.08);
+}
+
+.kit-landing__step--pink { background: rgba(246, 173, 200, 0.2); }
+.kit-landing__step--green { background: rgba(184, 221, 195, 0.3); padding-bottom: 2px; }
+
+.kit-landing__step-kicker {
+  margin: 0 0 8px !important;
+  font-weight: 700;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #8d4d62;
+}
+
+.kit-landing__step--green .kit-landing__step-kicker { color: #3f7a55; }
+
+.kit-landing__plain-list {
+  list-style: none;
+  margin: 0 0 12px;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.kit-landing__plain-list li {
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.kit-landing__group-label {
+  margin: 0 0 10px !important;
+  font-weight: 700;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.kit-landing__products {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px 14px;
+}
+
+.kit-landing__product {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: center;
+}
+
+.kit-landing__product img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 4px;
+  filter: drop-shadow(0 6px 7px rgba(42, 31, 28, 0.26)) drop-shadow(0 1px 1px rgba(42, 31, 28, 0.2));
+}
+
+.kit-landing__product strong {
+  font-size: 0.92rem;
+  line-height: 1.25;
+  color: var(--text);
+}
+
+.kit-landing__product span {
+  font-size: 0.82rem;
+  line-height: 1.35;
+  color: var(--muted);
+}
+
+.kit-landing__plus {
+  margin: 14px 0 6px !important;
+  text-align: center !important;
+  font-size: 1.8rem;
+  line-height: 1;
+  color: #c0707f;
+}
+
+.kit-landing__reset {
+  display: grid;
+  grid-template-columns: minmax(120px, 190px) 1fr;
+  gap: 20px;
+  align-items: center;
+  padding: 18px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.75);
+  border: 1.5px solid rgba(234, 112, 127, 0.35);
+}
+
+.kit-landing__reset img {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 8px 9px rgba(42, 31, 28, 0.3)) drop-shadow(0 1px 1px rgba(42, 31, 28, 0.2));
+}
+
+.kit-landing__reset strong {
+  display: block;
+  font-family: "Schoolbell", cursive;
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: #8d4d62;
+}
+
+.kit-landing__reset p { margin: 0 0 10px; text-align: left; }
+.kit-landing__brand p { text-align: left; }
+.kit-landing__reset p:last-child { margin-bottom: 0; }
+
+.kit-landing__reset-sub {
+  font-weight: 700;
+  color: var(--text);
+}
+
+.kit-landing__flow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  margin: 20px 0;
+}
+
+.kit-landing__flow-box {
+  width: min(100%, 360px);
+  padding: 14px 18px;
+  border-radius: 14px;
+  text-align: center;
+}
+
+.kit-landing__flow-box strong {
+  display: block;
+  font-family: "Schoolbell", cursive;
+  font-size: 1.6rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
+
+.kit-landing__flow-box span { font-size: 0.92rem; }
+
+.kit-landing__flow-box--reset { background: #2f4a5f; color: #fff; }
+.kit-landing__flow-box--sos { background: #fff; border: 1.5px solid rgba(62, 47, 43, 0.12); color: var(--text); }
+
+.kit-landing__flow-arrow {
+  font-size: 1.5rem;
+  line-height: 1;
+  color: #c0707f;
+}
+
+.kit-landing__brand {
+  margin: 22px 0 0;
+  padding: 20px 22px;
+  border-left: 4px solid #e8738a;
+  border-radius: 0 14px 14px 0;
+  background: rgba(253, 227, 234, 0.55);
+}
+
+.kit-landing__brand p {
+  margin: 0 0 10px;
+  font-family: "Lora", Georgia, serif;
+  font-size: 1.05rem;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.kit-landing__brand footer {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--text);
+}
+
+.kit-landing__brand footer span {
+  font-weight: 500;
+  color: var(--muted);
+}
+
+@media (max-width: 560px) {
+  .kit-landing__products { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .kit-landing__reset { grid-template-columns: 1fr; }
+  .kit-landing__reset img { max-width: 190px; margin-inline: auto; }
+}
